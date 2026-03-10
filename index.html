@@ -39,7 +39,6 @@
       background: #1e1e3f; border: 1px solid #7c83fd; color: #7c83fd;
       padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem;
     }
-    /* Project categories */
     .project-category { margin-bottom: 3.5rem; }
     .project-category h3 {
       font-size: 1.3rem; color: #a0a7ff; margin-bottom: 0.4rem;
@@ -68,7 +67,6 @@
       background: #111130; border: 1px solid #3a3a6a; color: #aaa;
       font-size: 0.75rem; padding: 0.2rem 0.7rem; border-radius: 12px;
     }
-    /* Project detail card (expanded) */
     .card-detail { grid-column: 1 / -1; }
     .card-detail h4 { font-size: 1.1rem; margin-bottom: 0.8rem; }
     .detail-block { margin-bottom: 0.8rem; }
@@ -81,7 +79,6 @@
       background: #12122a; border: 1px dashed #3a3a6a; border-radius: 8px;
       padding: 0.8rem 1rem; margin-top: 0.6rem; color: #888; font-size: 0.85rem; line-height: 1.6;
     }
-    /* Figure gallery */
     .figures-row {
       display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; justify-content: flex-start;
     }
@@ -89,12 +86,16 @@
       flex: 1 1 280px; max-width: 360px;
       background: #0f0f1a; border: 1px solid #2a2a4a; border-radius: 8px; overflow: hidden;
     }
-    .figure-item img {
+    .figure-item-large {
+      flex: 1 1 100%; max-width: 100%;
+      background: #0f0f1a; border: 1px solid #2a2a4a; border-radius: 8px; overflow: hidden;
+    }
+    .figure-item img, .figure-item-large img {
       width: 100%; height: auto; display: block;
       cursor: pointer; transition: opacity 0.2s;
     }
-    .figure-item img:hover { opacity: 0.85; }
-    .figure-item .fig-caption {
+    .figure-item img:hover, .figure-item-large img:hover { opacity: 0.85; }
+    .figure-item .fig-caption, .figure-item-large .fig-caption {
       font-size: 0.78rem; color: #666; text-align: center; padding: 0.4rem 0.6rem;
       border-top: 1px solid #1e1e3f;
     }
@@ -103,7 +104,6 @@
       margin-top: 0.8rem; padding: 0.5rem 0.8rem;
       border-left: 2px solid #2a2a4a; line-height: 1.5;
     }
-    /* Lightbox */
     #lightbox {
       display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85);
       z-index: 9999; justify-content: center; align-items: center;
@@ -136,7 +136,7 @@
   </nav>
 
   <div class="hero">
-    <h1>Hi, I'm <span>Jorge Riquelme</span></h1>
+    <h1>Hi, I&#39;m <span>Jorge Riquelme</span></h1>
     <p>Data Analyst turning complex institutional data into actionable insights.</p>
     <a href="#projects" class="btn">View my projects</a>
   </div>
@@ -189,50 +189,56 @@
     <!-- Category 2 -->
     <div class="project-category">
       <h3>Visualization &amp; Dashboards</h3>
-      <p class="category-desc">Power BI as the primary tool (embed via "Publish to Web"), Tableau Public as secondary, and Python visualizations.</p>
+      <p class="category-desc">Power BI as the primary tool (embed via &quot;Publish to Web&quot;), Tableau Public as secondary, and Python visualizations.</p>
       <div class="projects-grid">
 
         <div class="card card-detail">
           <div class="card-section-label">Power BI &middot; In development</div>
-          <h4>Student Retention Analysis: From Static Tables to Interactive Dashboards</h4>
+          <h4>Student Retention Analysis: From Static Reports to Interactive Dashboards</h4>
 
           <div class="detail-block">
             <div class="block-title">The Problem</div>
-            <p>Retention reports existed but weren't actionable. Data lived in a 20,000-row spreadsheet with over 30 columns, and visuals were low-resolution screenshots embedded in Word documents. The information was there but reading it required significant effort from the audience.</p>
+            <p>Retention reports existed but were not fully actionable. The source dataset presented significant structural complexity — over 20,000 rows, nearly 50 columns combining dimensions and calculated fields, and coding conventions that evolved over time. Additional challenges included unidentified transfer students and records that could not be reliably linked back to the original cohort. Visuals were embedded as low-resolution screenshots in Word documents, making year-over-year comparison difficult and limiting accessibility for non-technical stakeholders who needed to act on the findings.</p>
           </div>
 
           <div class="detail-block">
             <div class="block-title">The Approach</div>
-            <p>Rather than rebuilding from scratch, I first understood the existing calculation logic — how retention rates were computed, how cohorts were tracked, and how institutional retention differed from program-level retention. From there, I redesigned the visualization iteratively, applying churn analysis principles to an academic context.</p>
+            <p>Rather than rebuilding from scratch, I first understood the existing calculation logic — how retention rates were computed, how cohorts were tracked across semesters, and critically, how institutional retention differed from program-level retention. Transfer students needed to be identified and separated from the original cohort to produce meaningful program-level metrics. From there, I redesigned the visualization iteratively, applying churn analysis principles from business intelligence to an academic context — where the student is the equivalent of a customer, and semester-to-semester retention is the equivalent of churn.</p>
+          </div>
+
+          <div class="detail-block">
+            <div class="block-title">The Starting Point</div>
+            <p>The existing retention reports consisted of tabular views tracking cohort enrollment from application through multiple semesters, segmented by student population, combined with bar charts showing retention rates by cohort term and a secondary axis tracking total students lost per period. At this stage, institutional retention was not yet disaggregated from program-level retention — transfer students were not separately identified, and cohort tracking was not consistently linked back to the original Semester 1 intake. While the data was sound, static figures concentrated large volumes of information into a single view.</p>
+          </div>
+
+          <div class="detail-block">
+            <div class="block-title">My Redesign &#8212; Program Retention Table</div>
+            <p>An improved tabular view applying churn analysis principles to retention reporting — tracking cohort progression across semesters (Semester 1 through Semester 5) on the horizontal axis, with retention percentages on the vertical dimension, segmented by domestic (RES) and international (NRES) students. The staircase effect created by cohort maturity versus newer intakes makes attrition patterns immediately readable.</p>
+            <p style="margin-top:0.5rem; color:#aaa; font-size:0.9rem; line-height:1.65;">This format represented a significant improvement in accessibility over previous reports, though it remained static. It served as the analytical foundation for the subsequent Power BI implementation, which introduced dynamic filtering and historical benchmarking.</p>
           </div>
 
           <div class="detail-block">
             <div class="block-title">The Evolution</div>
             <div class="evolution-note">
-              Figure 1 &amp; 2 show the final tabular format used in institutional reports — structured and readable, but still static. Figure 3 shows the retention chart redesigned using churn analysis principles, where bars represent retention rates by population and the line tracks total student loss per cohort term.
-              <br><br>
-              The final stage, currently in development, moves this into Power BI — enabling dynamic comparison of current performance against historical averages, with filters by student population and campus.
+              The final stage moved the analysis into Power BI — enabling dynamic comparison of current cohort performance against historical averages, with filters by student population and campus. Institutional retention and program-level retention were presented as separate metrics, giving stakeholders a complete picture of both overall student persistence and program-specific outcomes.
             </div>
-            <div class="figures-row">
-              <div class="figure-item">
-                <img src="images/Image 001.png" alt="Figure 1 — Institutional retention table" onclick="openLightbox(this.src)" />
-                <div class="fig-caption">Figure 1 — Institutional retention report (static table)</div>
-              </div>
-              <div class="figure-item">
-                <img src="images/Image 002.png" alt="Figure 2 — Program-level retention table" onclick="openLightbox(this.src)" />
-                <div class="fig-caption">Figure 2 — Program-level retention breakdown</div>
-              </div>
-              <div class="figure-item">
+            <div class="figures-row" style="margin-top:1rem;">
+              <div class="figure-item-large">
                 <img src="images/Image 003.png" alt="Figure 3 — Redesigned churn-style retention chart" onclick="openLightbox(this.src)" />
                 <div class="fig-caption">Figure 3 — Retention redesigned with churn analysis principles</div>
               </div>
             </div>
-            <p class="figures-note">&#9888;&#65039; Note: All visuals are reference images recreated with synthetic data to preserve institutional confidentiality. This work was independently developed within a post-secondary education context in Canada.</p>
+            <p class="figures-note">&#9888;&#65039; Note: All visuals are reference images recreated with synthetic data to preserve institutional confidentiality. The redesign approach was self-initiated within the scope of an institutional reporting role at a post-secondary institution in Canada.</p>
           </div>
 
           <div class="detail-block">
             <div class="block-title">The Result</div>
-            <p>The same underlying data, presented differently, became a tool for decision-making rather than a reporting obligation.</p>
+            <p>The same underlying data, presented with the right structure and design, became a tool for decision-making rather than a reporting obligation. Stakeholders could identify programs with declining retention, compare current cohorts against historical benchmarks, and segment results by population — without requiring analytical expertise to interpret the output.</p>
+          </div>
+
+          <div class="detail-block">
+            <div class="block-title">Transferability</div>
+            <p>This analytical approach mirrors churn analysis in business intelligence — applicable to any domain where tracking cohort behavior over time is critical: SaaS customer retention, patient follow-up in healthcare, employee retention in HR, or client persistence in financial services.</p>
           </div>
 
           <div class="tags">
@@ -263,7 +269,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-section-label">Kaggle — Transferability</div>
+          <div class="card-section-label">Kaggle &#8212; Transferability</div>
           <h4>Kaggle Projects</h4>
           <p>Applied education-domain analytical methods to open datasets in healthcare and workforce domains — demonstrating transferability of the same modeling and auditing approach.</p>
           <div class="tags">
