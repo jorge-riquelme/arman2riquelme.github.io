@@ -804,7 +804,50 @@
             <div class="case-image-caption">Figure 1: Academic Standing Transition Matrix — student movement across academic standing states between semesters. Recreated with synthetic data for portfolio purposes.</div>
           </div>
         </div>
-        <div class="case-section">
+                <div class="case-section">
+          <div class="case-section-title">Dataset Structure</div>
+          <p>The transformation produces a three-column dataset — ready to load directly into Power BI as a matrix table or Sankey chart:</p>
+          <div style="overflow-x:auto;margin-top:1rem;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+              <thead>
+                <tr>
+                  <th style="text-align:left;padding:0.6rem 1rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Previous_Standing</th>
+                  <th style="text-align:left;padding:0.6rem 1rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Current_Standing</th>
+                  <th style="text-align:right;padding:0.6rem 1rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Student_Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:0.5rem 1rem;color:var(--muted);">Academic Intervention</td>
+                  <td style="padding:0.5rem 1rem;color:var(--muted);">Academic Intervention</td>
+                  <td style="padding:0.5rem 1rem;color:var(--muted);text-align:right;">31</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:0.5rem 1rem;color:var(--muted);">Academic Intervention</td>
+                  <td style="padding:0.5rem 1rem;color:var(--muted);">Academic Probation 1</td>
+                  <td style="padding:0.5rem 1rem;color:var(--muted);text-align:right;">14</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:0.5rem 1rem;color:var(--muted);">Academic Intervention</td>
+                  <td style="padding:0.5rem 1rem;color:var(--muted);">Academic Probation 2</td>
+                  <td style="padding:0.5rem 1rem;color:var(--muted);text-align:right;">3</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:0.5rem 1rem;color:var(--muted);">...</td>
+                  <td style="padding:0.5rem 1rem;color:var(--muted);">...</td>
+                  <td style="padding:0.5rem 1rem;color:var(--muted);text-align:right;">...</td>
+                </tr>
+                <tr>
+                  <td style="padding:0.5rem 1rem;color:var(--text);font-weight:400;">Good Standing</td>
+                  <td style="padding:0.5rem 1rem;color:var(--text);font-weight:400;">Good Standing</td>
+                  <td style="padding:0.5rem 1rem;color:var(--gold);font-weight:400;text-align:right;">1,985</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:0.75rem;font-size:0.8rem;color:var(--muted);font-style:italic;">Sample structure — synthetic data for illustration purposes.</p>
+        </div>
+<div class="case-section">
           <div class="case-section-title">Longitudinal Potential &amp; Bias Reduction</div>
           <p>Applying the same transformation consistently across academic periods generates historical metrics — enabling the institution to track whether recovery rates are improving and whether interventions actually shifted trajectories over time.</p>
           <p style="margin-top:0.6rem;">When results are aggregated by context — program, campus, semester, or demographic group — rather than at the individual level, the matrix reduces identification bias. Risk becomes a property of the learning environment, not a label assigned to the student. This allows institutions to ask a fundamentally different question: not <em>which students are failing</em>, but <em>under which conditions does failure concentrate</em>.</p>
