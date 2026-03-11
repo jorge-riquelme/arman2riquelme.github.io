@@ -73,7 +73,7 @@
 
     /* ── HERO ── */
     #hero {
-      min-height: 100vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       padding: 0 4rem;
@@ -81,7 +81,6 @@
       overflow: hidden;
     }
 
-    /* Subtle linear gradient depth — no blue, no neon */
     #hero::before {
       content: '';
       position: absolute;
@@ -90,7 +89,6 @@
       z-index: 0;
     }
 
-    /* Decorative grid lines — architectural feel */
     #hero::after {
       content: '';
       position: absolute;
@@ -102,9 +100,17 @@
       z-index: 0;
     }
 
-    .hero-content {
+    .hero-container {
       position: relative;
       z-index: 1;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      width: 100%;
+      align-items: center;
+    }
+
+    .hero-main {
       max-width: 760px;
     }
 
@@ -171,6 +177,51 @@
       color: var(--bg);
     }
 
+    /* Columnas de Pilares (Lado derecho) */
+    .hero-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      border-left: 1px solid var(--border);
+      padding-left: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.7s;
+    }
+
+    .pillar-item h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar-item p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.4;
+      font-weight: 300;
+    }
+
+    /* Ajuste para Móviles */
+    @media (max-width: 768px) {
+      #hero {
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+        height: auto;
+      }
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .hero-pillars {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding-left: 0;
+        padding-top: 2rem;
+      }
+    }
     /* ── SECTIONS ── */
     section {
       padding: 6rem 4rem;
@@ -514,6 +565,7 @@
 
   <!-- HERO -->
   <section id="hero">
+  <div class="hero-container">
     <div class="hero-content">
       <p class="hero-greeting">Portfolio</p>
       <h1 class="hero-name">Jorge Riquelme</h1>
@@ -522,7 +574,23 @@
       </p>
       <a href="#projects" class="btn-outline">View my projects</a>
     </div>
-  </section>
+
+    <div class="hero-pillars">
+      <div class="pillar-item">
+        <h3>Institutional Intelligence</h3>
+        <p>Modelado de retención y análisis de riesgo institucional.</p>
+      </div>
+      <div class="pillar-item">
+        <h3>Data Architecture</h3>
+        <p>Diseño de Data Marts e integración de fuentes multinivel.</p>
+      </div>
+      <div class="pillar-item">
+        <h3>Evidence-Based Research</h3>
+        <p>Frameworks basados en estudios de <strong>Purdue</strong> y <strong>Polimi</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- ABOUT -->
   <section id="about">
