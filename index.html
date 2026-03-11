@@ -7,7 +7,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Segoe UI', sans-serif; background: #0f0f1a; color: #e0e0e0; }
-    nav {h
+    nav {
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.2rem 3rem; background: #1a1a2e; position: sticky; top: 0; z-index: 100;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
@@ -18,15 +18,15 @@
     nav ul a:hover { color: #7c83fd; }
     .hero {
       min-height: 90vh; display: flex; flex-direction: column;
-      justify-content: center; align-items: center; text-align: center;
-      padding: 2rem; background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+      justify-content: center; align-items: center; text-align: center; padding: 2rem;
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
     }
     .hero h1 { font-size: 3rem; color: #fff; margin-bottom: 0.5rem; }
     .hero h1 span { color: #7c83fd; }
     .hero p { font-size: 1.2rem; color: #aaa; max-width: 550px; margin: 1rem auto 2rem; }
     .btn {
-      display: inline-block; padding: 0.8rem 2rem; background: #7c83fd;
-      color: #fff; border-radius: 30px; text-decoration: none; font-weight: 600;
+      display: inline-block; padding: 0.8rem 2rem; background: #7c83fd; color: #fff;
+      border-radius: 30px; text-decoration: none; font-weight: 600;
       transition: background 0.3s, transform 0.2s;
     }
     .btn:hover { background: #5a62e8; transform: translateY(-2px); }
@@ -35,94 +35,41 @@
     .about-text { font-size: 1.05rem; line-height: 1.8; color: #bbb; text-align: center; max-width: 750px; margin: 0 auto; }
     .about-text p + p { margin-top: 1rem; }
     .skills-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
-    .skill-tag {
-      background: #1e1e3f; border: 1px solid #7c83fd; color: #7c83fd;
-      padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem;
-    }
+    .skill-tag { background: #1e1e3f; border: 1px solid #7c83fd; color: #7c83fd; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem; }
     .project-category { margin-bottom: 3.5rem; }
-    .project-category h3 {
-      font-size: 1.3rem; color: #a0a7ff; margin-bottom: 0.4rem;
-      border-left: 3px solid #7c83fd; padding-left: 0.8rem;
-    }
-    .project-category .category-desc {
-      color: #888; font-size: 0.9rem; margin-bottom: 1.5rem; padding-left: 1.1rem;
-    }
+    .project-category h3 { font-size: 1.3rem; color: #a0a7ff; margin-bottom: 0.4rem; border-left: 3px solid #7c83fd; padding-left: 0.8rem; }
+    .project-category .category-desc { color: #888; font-size: 0.9rem; margin-bottom: 1.5rem; padding-left: 1.1rem; }
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-    .card {
-      background: #1a1a2e; border-radius: 12px; padding: 1.5rem;
-      border: 1px solid #2a2a4a; transition: transform 0.3s, box-shadow 0.3s;
-    }
+    .card { background: #1a1a2e; border-radius: 12px; padding: 1.5rem; border: 1px solid #2a2a4a; transition: transform 0.3s, box-shadow 0.3s; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(124,131,253,0.2); }
     .card h4 { color: #fff; margin-bottom: 0.5rem; font-size: 1rem; }
-    .card .card-section-label {
-      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
-      color: #7c83fd; margin-bottom: 0.6rem; font-weight: 600;
-    }
+    .card .card-section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #7c83fd; margin-bottom: 0.6rem; font-weight: 600; }
     .card p { color: #999; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.6rem; }
     .card p strong { color: #ccc; }
     .card a { color: #7c83fd; font-size: 0.85rem; text-decoration: none; font-weight: 600; }
     .card a:hover { text-decoration: underline; }
     .card .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
-    .card .tag {
-      background: #111130; border: 1px solid #3a3a6a; color: #aaa;
-      font-size: 0.75rem; padding: 0.2rem 0.7rem; border-radius: 12px;
-    }
+    .card .tag { background: #111130; border: 1px solid #3a3a6a; color: #aaa; font-size: 0.75rem; padding: 0.2rem 0.7rem; border-radius: 12px; }
     .card-detail { grid-column: 1 / -1; }
     .card-detail h4 { font-size: 1.1rem; margin-bottom: 0.8rem; }
     .detail-block { margin-bottom: 0.8rem; }
-    .detail-block .block-title {
-      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;
-      color: #7c83fd; font-weight: 700; margin-bottom: 0.3rem;
-    }
+    .detail-block .block-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: #7c83fd; font-weight: 700; margin-bottom: 0.3rem; }
     .detail-block p { color: #aaa; font-size: 0.9rem; line-height: 1.65; margin: 0; }
-    .evolution-note {
-      background: #12122a; border: 1px dashed #3a3a6a; border-radius: 8px;
-      padding: 0.8rem 1rem; margin-top: 0.6rem; color: #888; font-size: 0.85rem; line-height: 1.6;
-    }
-    .figures-row {
-      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; justify-content: flex-start;
-    }
-    .figure-item {
-      flex: 1 1 280px; max-width: 360px;
-      background: #0f0f1a; border: 1px solid #2a2a4a; border-radius: 8px; overflow: hidden;
-    }
-    .figure-item-large {
-      flex: 1 1 100%; max-width: 100%;
-      background: #0f0f1a; border: 1px solid #2a2a4a; border-radius: 8px; overflow: hidden;
-    }
-    .figure-item img, .figure-item-large img {
-      width: 100%; height: auto; display: block;
-      cursor: pointer; transition: opacity 0.2s;
-    }
+    .figures-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; justify-content: flex-start; }
+    .figure-item { flex: 1 1 280px; max-width: 360px; background: #0f0f1a; border: 1px solid #2a2a4a; border-radius: 8px; overflow: hidden; }
+    .figure-item-large { flex: 1 1 100%; max-width: 100%; background: #0f0f1a; border: 1px solid #2a2a4a; border-radius: 8px; overflow: hidden; }
+    .figure-item img, .figure-item-large img { width: 100%; height: auto; display: block; cursor: pointer; transition: opacity 0.2s; }
     .figure-item img:hover, .figure-item-large img:hover { opacity: 0.85; }
-    .figure-item .fig-caption, .figure-item-large .fig-caption {
-      font-size: 0.78rem; color: #666; text-align: center; padding: 0.4rem 0.6rem;
-      border-top: 1px solid #1e1e3f;
-    }
-    .figures-note {
-      font-size: 0.78rem; color: #555; font-style: italic;
-      margin-top: 0.8rem; padding: 0.5rem 0.8rem;
-      border-left: 2px solid #2a2a4a; line-height: 1.5;
-    }
-    #lightbox {
-      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85);
-      z-index: 9999; justify-content: center; align-items: center;
-    }
+    .figure-item .fig-caption, .figure-item-large .fig-caption { font-size: 0.78rem; color: #666; text-align: center; padding: 0.4rem 0.6rem; border-top: 1px solid #1e1e3f; }
+    .figures-note { font-size: 0.78rem; color: #555; font-style: italic; margin-top: 0.8rem; padding: 0.5rem 0.8rem; border-left: 2px solid #2a2a4a; line-height: 1.5; }
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9999; justify-content: center; align-items: center; }
     #lightbox.open { display: flex; }
     #lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 6px; box-shadow: 0 0 40px rgba(0,0,0,0.8); }
-    #lightbox-close {
-      position: absolute; top: 1rem; right: 1.5rem;
-      color: #fff; font-size: 2rem; cursor: pointer; line-height: 1;
-    }
+    #lightbox-close { position: absolute; top: 1rem; right: 1.5rem; color: #fff; font-size: 2rem; cursor: pointer; line-height: 1; }
     .contact-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
-    .contact-links a {
-      color: #7c83fd; text-decoration: none; font-size: 1rem;
-      border: 1px solid #7c83fd; padding: 0.6rem 1.5rem; border-radius: 25px;
-      transition: background 0.3s, color 0.3s;
-    }
+    .contact-links a { color: #7c83fd; text-decoration: none; font-size: 1rem; border: 1px solid #7c83fd; padding: 0.6rem 1.5rem; border-radius: 25px; transition: background 0.3s, color 0.3s; }
     .contact-links a:hover { background: #7c83fd; color: #fff; }
     footer { text-align: center; padding: 2rem; color: #555; font-size: 0.85rem; }
-  
     /* Read-more toggle */
     .read-more-content { display: none; margin-top: 0.5rem; }
     .read-more-content.open { display: block; }
@@ -135,602 +82,213 @@
     .read-more-btn:hover { color: #a0a7ff; }
     .read-more-btn .rm-icon { font-size: 1rem; line-height: 1; transition: transform 0.2s; }
     .read-more-btn.open .rm-icon { transform: rotate(45deg); }
-</style>
+  </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Jorge Riquelme</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
 
-  <div class="hero">
-    <h1>Hi, I&#39;m <span>Jorge Riquelme</span></h1>
-    <p>AI-informed Data Analyst turning complex institutional data into actionable insights.<br>Combining data architecture and applied research to build organizational intelligence — explore my work below.</p>
-    <a href="#projects" class="btn">View my projects</a>
+<nav>
+  <div class="logo">Jorge Riquelme</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <h1>Hi, I&#39;m <span>Jorge Riquelme</span></h1>
+  <p>AI-informed Data Analyst turning complex institutional data into actionable insights.<br>Combining data architecture and applied research to build organizational intelligence — explore my work below.</p>
+  <a href="#projects" class="btn">View my projects</a>
+</div>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about-text">
+    <p>Data Analyst with hands-on experience turning complex institutional data into actionable insights. My work spans student retention modeling, labour market analysis, and disaggregated risk analysis, grounded in real problems, self-initiated, and designed with the end user in mind.</p>
+    <p>My analytical approach combines data mart architecture to enable BI solutions with validated applied research in analytics to build organizational intelligence, integrating multilevel data sources and risk indicators to reduce information silos, drawing on frameworks developed at institutions such as Politecnico di Milano, UCSC-Chile, and Purdue University.</p>
+    <p>I work as an AI-informed analyst, leveraging AI tools critically while understanding their limitations and bias risks in institutional decision-making.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <span class="skill-tag">Python</span>
+    <span class="skill-tag">SQL</span>
+    <span class="skill-tag">Power BI</span>
+    <span class="skill-tag">Tableau</span>
+    <span class="skill-tag">Data Cleaning</span>
+    <span class="skill-tag">Data Validation</span>
+    <span class="skill-tag">Anomaly Detection</span>
+    <span class="skill-tag">Student Retention</span>
+    <span class="skill-tag">Labour Market Analysis</span>
+    <span class="skill-tag">Git &amp; GitHub</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <!-- Category 1 -->
+  <div class="project-category">
+    <h3>Data Analysis &amp; Auditing</h3>
+    <p class="category-desc">Python — focused on data quality: cleaning, validation, and anomaly detection.</p>
+    <div class="projects-grid">
+      <div class="card">
+        <div class="card-section-label">Coming soon</div>
+        <h4>Data Quality Pipeline</h4>
+        <p>Automated auditing workflow for institutional datasets — detecting duplicates, schema violations, and statistical outliers using Python and pandas.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">pandas</span>
+          <span class="tag">Data Auditing</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="about-text">
-      <p>Data Analyst with hands-on experience turning complex institutional data into actionable insights. My work spans student retention modeling, labour market analysis, and disaggregated risk analysis, grounded in real problems, self-initiated, and designed with the end user in mind.</p>
-        <p>My analytical approach combines data mart architecture to enable BI solutions with validated applied research in analytics to build organizational intelligence, integrating multilevel data sources and risk indicators to reduce information silos, drawing on frameworks developed at institutions such as Politecnico di Milano, UCSC-Chile, and Purdue University.</p>
-        <p>I work as an AI-informed analyst, leveraging AI tools critically while understanding their limitations and bias risks in institutional decision-making.</p>
-    </div>
-  </section>
+  <!-- Category 2 -->
+  <div class="project-category">
+    <h3>Visualization &amp; Dashboards</h3>
+    <p class="category-desc">Power BI as the primary tool (embed via &quot;Publish to Web&quot;), Tableau Public as secondary, and Python visualizations.</p>
+    <div class="projects-grid">
+      <div class="card card-detail">
+        <div class="card-section-label">Power BI &middot; In development</div>
+        <h4>Student Retention Analysis: From Static Reports to Interactive Dashboards</h4>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">SQL</span>
-      <span class="skill-tag">Power BI</span>
-      <span class="skill-tag">Tableau</span>
-      <span class="skill-tag">Data Cleaning</span>
-      <span class="skill-tag">Data Validation</span>
-      <span class="skill-tag">Anomaly Detection</span>
-      <span class="skill-tag">Student Retention</span>
-      <span class="skill-tag">Labour Market Analysis</span>
-      <span class="skill-tag">Git &amp; GitHub</span>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <!-- Category 1 -->
-    <div class="project-category">
-      <h3>Data Analysis &amp; Auditing</h3>
-      <p class="category-desc">Python — focused on data quality: cleaning, validation, and anomaly detection.</p>
-      <div class="projects-grid">
-        <div class="card">
-          <div class="card-section-label">Coming soon</div>
-          <h4>Data Quality Pipeline</h4>
-          <p>Automated auditing workflow for institutional datasets — detecting duplicates, schema violations, and statistical outliers using Python and pandas.</p>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">pandas</span>
-            <span class="tag">Data Auditing</span>
+        <div class="detail-block">
+          <div class="block-title">The Problem</div>
+          <p>Retention reports existed but were not fully actionable — visuals were static screenshots embedded in Word documents, making year-over-year comparison difficult and limiting accessibility for non-technical stakeholders. The underlying dataset added complexity: over 20,000 rows, nearly 50 columns, and unidentified transfer students that distorted program-level metrics.</p>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">
+            <span class="rm-icon">+</span> Read more
+          </button>
+          <div class="read-more-content">
+            <p>The source dataset combined dimensions and calculated fields with coding conventions that evolved over time. Records could not be reliably linked back to the original cohort, and transfer students were not separately identified — making it impossible to distinguish institutional retention from program-level retention without first resolving these structural issues.</p>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Category 2 -->
-    <div class="project-category">
-      <h3>Visualization &amp; Dashboards</h3>
-      <p class="category-desc">Power BI as the primary tool (embed via &quot;Publish to Web&quot;), Tableau Public as secondary, and Python visualizations.</p>
-      <div class="projects-grid">
+        <div class="detail-block">
+          <div class="block-title">The Approach</div>
+          <p>Rather than rebuilding from scratch, I first understood the existing calculation logic — how retention rates were computed, how cohorts were tracked, and critically, how institutional retention differed from program-level retention. From there, I redesigned the visualization applying churn analysis principles: the student as the equivalent of a customer, semester-to-semester retention as the equivalent of churn.</p>
+        </div>
 
-        <div class="card card-detail">
-          <div class="card-section-label">Power BI &middot; In development</div>
-          <h4>Student Retention Analysis: From Static Reports to Interactive Dashboards</h4>
-
-          <div class="detail-block">
-            <div class="block-title">The Problem</div>
-            <p>Retention reports existed but were not fully actionable. The source dataset presented significant structural complexity — over 20,000 rows, nearly 50 columns combining dimensions and calculated fields, and coding conventions that evolved over time. Additional challenges included unidentified transfer students and records that could not be reliably linked back to the original cohort. Visuals were embedded as low-resolution screenshots in Word documents, making year-over-year comparison difficult and limiting accessibility for non-technical stakeholders who needed to act on the findings.</p>
+        <div class="detail-block">
+          <div class="block-title">My Redesign &#8212; Program Retention Table</div>
+          <p>An improved tabular view tracking cohort progression across semesters (Semester 1 through Semester 5) on the horizontal axis, with retention percentages on the vertical dimension, segmented by domestic (RES) and international (NRES) students. The staircase effect makes attrition patterns immediately readable — newer cohorts have fewer semesters of data, older cohorts show the full trajectory.</p>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">
+            <span class="rm-icon">+</span> Read more
+          </button>
+          <div class="read-more-content">
+            <p>This format represented a significant improvement in accessibility over previous reports, though it remained static. It served as the analytical foundation for the subsequent Power BI implementation, which introduced dynamic filtering and historical benchmarking.</p>
           </div>
+        </div>
 
-          <div class="detail-block">
-            <div class="block-title">The Approach</div>
-            <p>Rather than rebuilding from scratch, I first understood the existing calculation logic — how retention rates were computed, how cohorts were tracked across semesters, and critically, how institutional retention differed from program-level retention. Transfer students needed to be identified and separated from the original cohort to produce meaningful program-level metrics. From there, I redesigned the visualization iteratively, applying churn analysis principles from business intelligence to an academic context — where the student is the equivalent of a customer, and semester-to-semester retention is the equivalent of churn.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">The Starting Point</div>
-            <p>The existing retention reports consisted of tabular views tracking cohort enrollment from application through multiple semesters, segmented by student population, combined with bar charts showing retention rates by cohort term and a secondary axis tracking total students lost per period. At this stage, institutional retention was not yet disaggregated from program-level retention — transfer students were not separately identified, and cohort tracking was not consistently linked back to the original Semester 1 intake. While the data was sound, static figures concentrated large volumes of information into a single view.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">My Redesign &#8212; Program Retention Table</div>
-            <p>An improved tabular view applying churn analysis principles to retention reporting — tracking cohort progression across semesters (Semester 1 through Semester 5) on the horizontal axis, with retention percentages on the vertical dimension, segmented by domestic (RES) and international (NRES) students. The staircase effect created by cohort maturity versus newer intakes makes attrition patterns immediately readable.</p>
-            <p style="margin-top:0.5rem; color:#aaa; font-size:0.9rem; line-height:1.65;">This format represented a significant improvement in accessibility over previous reports, though it remained static. It served as the analytical foundation for the subsequent Power BI implementation, which introduced dynamic filtering and historical benchmarking.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="figures-row" style="margin-top:1rem;">
-              <div class="figure-item-large">
-                <img src="images/Image 003.png" alt="Figure 3 — Redesigned churn-style retention chart" onclick="openLightbox(this.src)" />
-                <div class="fig-caption" style="font-size:1rem; font-weight:600; color:#a0a7ff; padding:0.6rem 0.8rem;">Cohort Progression Across Semesters &#8212; Program-Level Retention Rate</div>
-              </div>
+        <div class="detail-block">
+          <div class="figures-row" style="margin-top:1rem;">
+            <div class="figure-item-large">
+              <img src="images/Image 003.png" alt="Figure 3 — Redesigned churn-style retention chart" onclick="openLightbox(this.src)" />
+              <div class="fig-caption" style="font-size:1rem; font-weight:600; color:#a0a7ff; padding:0.6rem 0.8rem;">Cohort Progression Across Semesters &#8212; Program-Level Retention Rate</div>
             </div>
-            <p class="figures-note">&#9888;&#65039; Note: All visuals are reference images recreated with synthetic data to preserve institutional confidentiality. The redesign approach was self-initiated within the scope of an institutional reporting role at a post-secondary institution in Canada.</p>
           </div>
-
-          <div class="detail-block">
-            <div class="block-title">The Result</div>
-            <p>The same underlying data, presented with the right structure and design, became a tool for decision-making rather than a reporting obligation. Stakeholders could identify programs with declining retention, compare current cohorts against historical benchmarks, and segment results by population — without requiring analytical expertise to interpret the output.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">Next Step</div>
-            <p>The static redesign served as the foundation for a Power BI implementation — enabling dynamic comparison of current cohort performance against historical averages, with filters by student population and campus. Institutional retention and program-level retention are presented as separate metrics, giving stakeholders a complete picture of both overall student persistence and program-specific outcomes. This stage is currently in development using synthetic data.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">Transferability</div>
-            <p>This analytical approach mirrors churn analysis in business intelligence — applicable to any domain where tracking cohort behavior over time is critical: SaaS customer retention, patient follow-up in healthcare, employee retention in HR, or client persistence in financial services.</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">Power BI</span>
-            <span class="tag">Python</span>
-            <span class="tag">Churn Analysis</span>
-            <span class="tag">Student Retention</span>
-            <span class="tag">Data Visualization</span>
-          </div>
+          <p class="figures-note">&#9888;&#65039; Note: All visuals are reference images recreated with synthetic data to preserve institutional confidentiality. The redesign approach was self-initiated within the scope of an institutional reporting role at a post-secondary institution in Canada.</p>
         </div>
 
-      </div>
-    </div>
-
-    <!-- Category 3 -->
-    <div class="project-category">
-      <h3>Education Domain Projects</h3>
-      <p class="category-desc">Independent pilots and proposals — student retention, early alert systems, academic performance, multi-level integration.</p>
-      <div class="projects-grid">
-        <div class="card">
-          <div class="card-section-label">Independent pilot</div>
-          <h4>Early Alert System Prototype</h4>
-          <p>Risk stratification model combining academic performance and engagement signals to flag at-risk students before the withdrawal deadline.</p>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Risk Modeling</span>
-            <span class="tag">Education</span>
-          </div>
+        <div class="detail-block">
+          <div class="block-title">The Result</div>
+          <p>The same underlying data, presented with the right structure and design, became a tool for decision-making rather than a reporting obligation. Stakeholders could identify programs with declining retention, compare current cohorts against historical benchmarks, and segment results by population — without requiring analytical expertise to interpret the output.</p>
         </div>
-        <div class="card">
-          <div class="card-section-label">Kaggle &#8212; Transferability</div>
-          <h4>Kaggle Projects</h4>
-          <p>Applied education-domain analytical methods to open datasets in healthcare and workforce domains — demonstrating transferability of the same modeling and auditing approach.</p>
-          <div class="tags">
-            <span class="tag">Kaggle</span>
-            <span class="tag">Python</span>
-            <span class="tag">Cross-domain</span>
-          </div>
+
+        <div class="detail-block">
+          <div class="block-title">Next Step</div>
+          <p>The static redesign served as the foundation for a Power BI implementation — enabling dynamic comparison of current cohort performance against historical averages, with filters by student population and campus. Institutional retention and program-level retention are presented as separate metrics, giving stakeholders a complete picture of both overall student persistence and program-specific outcomes. This stage is currently in development using synthetic data.</p>
+        </div>
+
+        <div class="detail-block">
+          <div class="block-title">Transferability</div>
+          <p>This analytical approach mirrors churn analysis in business intelligence — applicable to any domain where tracking cohort behavior over time is critical: SaaS customer retention, patient follow-up in healthcare, employee retention in HR, or client persistence in financial services.</p>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">Python</span>
+          <span class="tag">Churn Analysis</span>
+          <span class="tag">Student Retention</span>
+          <span class="tag">Data Visualization</span>
         </div>
       </div>
     </div>
-
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-links">
-      <a href="https://github.com/arman2riquelme" target="_blank">GitHub</a>
-      <a href="mailto:arman2.riquelme@gmail.com">Email</a>
-      <a href="https://linkedin.com/in/tu-perfil" target="_blank">LinkedIn</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 Jorge Riquelme &middot; Built with GitHub Pages</p>
-  </footer>
-
-  <!-- Lightbox -->
-  <div id="lightbox">
-    <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-img" src="" alt="Full size figure" />
   </div>
 
-  <script>
-    function toggleReadMore(btn) {
-      const content = btn.nextElementSibling;
-      const isOpen = content.classList.toggle('open');
-      btn.classList.toggle('open', isOpen);
-      btn.innerHTML = isOpen
-        ? '<span class="rm-icon">+</span> Show less'
-        : '<span class="rm-icon">+</span> Read more';
-    }
-    function openLightbox(src) {
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').classList.add('open');
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-    }
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-      if (e.target === this) closeLightbox();
-    });
-  </script>
-</body>
-</html><div class="card card-detail">
-          <div class="card-section-label">Power BI &middot; In development</div>
-          <h4>Student Retention Analysis: From Static Reports to Interactive Dashboards</h4>
-
-          <div class="detail-block">
-            <div class="block-title">The Problem</div>
-            <p>Retention reports existed but were not fully actionable — visuals were static screenshots embedded in Word documents, making year-over-year comparison difficult and limiting accessibility for non-technical stakeholders. The underlying dataset added complexity: over 20,000 rows, nearly 50 columns, and unidentified transfer students that distorted program-level metrics.</p>
-            <button class="read-more-btn" onclick="toggleReadMore(this)">
-              <span class="rm-icon">+</span> Read more
-            </button>
-            <div class="read-more-content">
-              <p>The source dataset combined dimensions and calculated fields with coding conventions that evolved over time. Records could not be reliably linked back to the original cohort, and transfer students were not separately identified — making it impossible to distinguish institutional retention from program-level retention without first resolving these structural issues.</p>
-            </div>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">The Approach</div>
-            <p>Rather than rebuilding from scratch, I first understood the existing calculation logic — how retention rates were computed, how cohorts were tracked, and critically, how institutional retention differed from program-level retention. From there, I redesigned the visualization applying churn analysis principles: the student as the equivalent of a customer, semester-to-semester retention as the equivalent of churn.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">My Redesign &#8212; Program Retention Table</div>
-            <p>An improved tabular view tracking cohort progression across semesters (Semester 1 through Semester 5) on the horizontal axis, with retention percentages on the vertical dimension, segmented by domestic (RES) and international (NRES) students. The staircase effect makes attrition patterns immediately readable — newer cohorts have fewer semesters of data, older cohorts show the full trajectory.</p>
-            <button class="read-more-btn" onclick="toggleReadMore(this)">
-              <span class="rm-icon">+</span> Read more
-            </button>
-            <div class="read-more-content">
-              <p>This format represented a significant improvement in accessibility over previous reports, though it remained static. It served as the analytical foundation for the subsequent Power BI implementation, which introduced dynamic filtering and historical benchmarking.</p>
-            </div>
-          </div>
-
-          <div class="detail-block">
-            <div class="figures-row" style="margin-top:1rem;">
-              <div class="figure-item-large">
-                <img src="images/Image 003.png" alt="Figure 3 — Redesigned churn-style retention chart" onclick="openLightbox(this.src)" />
-                <div class="fig-caption" style="font-size:1rem; font-weight:600; color:#a0a7ff; padding:0.6rem 0.8rem;">Cohort Progression Across Semesters &#8212; Program-Level Retention Rate</div>
-              </div>
-            </div>
-            <p class="figures-note">&#9888;&#65039; Note: All visuals are reference images recreated with synthetic data to preserve institutional confidentiality. The redesign approach was self-initiated within the scope of an institutional reporting role at a post-secondary institution in Canada.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">The Result</div>
-            <p>The same underlying data, presented with the right structure and design, became a tool for decision-making rather than a reporting obligation. Stakeholders could identify programs with declining retention, compare current cohorts against historical benchmarks, and segment results by population — without requiring analytical expertise to interpret the output.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">Next Step</div>
-            <p>The static redesign served as the foundation for a Power BI implementation — enabling dynamic comparison of current cohort performance against historical averages, with filters by student population and campus. Institutional retention and program-level retention are presented as separate metrics, giving stakeholders a complete picture of both overall student persistence and program-specific outcomes. This stage is currently in development using synthetic data.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">Transferability</div>
-            <p>This analytical approach mirrors churn analysis in business intelligence — applicable to any domain where tracking cohort behavior over time is critical: SaaS customer retention, patient follow-up in healthcare, employee retention in HR, or client persistence in financial services.</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">Power BI</span>
-            <span class="tag">Python</span>
-            <span class="tag">Churn Analysis</span>
-            <span class="tag">Student Retention</span>
-            <span class="tag">Data Visualization</span>
-          </div>
+  <!-- Category 3 -->
+  <div class="project-category">
+    <h3>Education Domain Projects</h3>
+    <p class="category-desc">Independent pilots and proposals — student retention, early alert systems, academic performance, multi-level integration.</p>
+    <div class="projects-grid">
+      <div class="card">
+        <div class="card-section-label">Independent pilot</div>
+        <h4>Early Alert System Prototype</h4>
+        <p>Risk stratification model combining academic performance and engagement signals to flag at-risk students before the withdrawal deadline.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Risk Modeling</span>
+          <span class="tag">Education</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-section-label">Kaggle &#8212; Transferability</div>
+        <h4>Kaggle Projects</h4>
+        <p>Applied education-domain analytical methods to open datasets in healthcare and workforce domains — demonstrating transferability of the same modeling and auditing approach.</p>
+        <div class="tags">
+          <span class="tag">Kaggle</span>
+          <span class="tag">Python</span>
+          <span class="tag">Cross-domain</span>
         </div>
       </div>
     </div>
-    <!-- Category 3 -->et="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jorge Riquelme — Data Analyst Portfolio</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; background: #0f0f1a; color: #e0e0e0; }
-    nav {h
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 3rem; background: #1a1a2e; position: sticky; top: 0; z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-    nav .logo { font-size: 1.4rem; font-weight: 700; color: #7c83fd; }
-    nav ul { list-style: none; display: flex; gap: 2rem; }
-    nav ul a { color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
-    nav ul a:hover { color: #7c83fd; }
-    .hero {
-      min-height: 90vh; display: flex; flex-direction: column;
-      justify-content: center; align-items: center; text-align: center;
-      padding: 2rem; background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
-    }
-    .hero h1 { font-size: 3rem; color: #fff; margin-bottom: 0.5rem; }
-    .hero h1 span { color: #7c83fd; }
-    .hero p { font-size: 1.2rem; color: #aaa; max-width: 550px; margin: 1rem auto 2rem; }
-    .btn {
-      display: inline-block; padding: 0.8rem 2rem; background: #7c83fd;
-      color: #fff; border-radius: 30px; text-decoration: none; font-weight: 600;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .btn:hover { background: #5a62e8; transform: translateY(-2px); }
-    section { padding: 5rem 3rem; max-width: 1100px; margin: 0 auto; }
-    section h2 { font-size: 2rem; color: #7c83fd; margin-bottom: 2rem; text-align: center; }
-    .about-text { font-size: 1.05rem; line-height: 1.8; color: #bbb; text-align: center; max-width: 750px; margin: 0 auto; }
-    .about-text p + p { margin-top: 1rem; }
-    .skills-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
-    .skill-tag {
-      background: #1e1e3f; border: 1px solid #7c83fd; color: #7c83fd;
-      padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem;
-    }
-    .project-category { margin-bottom: 3.5rem; }
-    .project-category h3 {
-      font-size: 1.3rem; color: #a0a7ff; margin-bottom: 0.4rem;
-      border-left: 3px solid #7c83fd; padding-left: 0.8rem;
-    }
-    .project-category .category-desc {
-      color: #888; font-size: 0.9rem; margin-bottom: 1.5rem; padding-left: 1.1rem;
-    }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-    .card {
-      background: #1a1a2e; border-radius: 12px; padding: 1.5rem;
-      border: 1px solid #2a2a4a; transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(124,131,253,0.2); }
-    .card h4 { color: #fff; margin-bottom: 0.5rem; font-size: 1rem; }
-    .card .card-section-label {
-      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
-      color: #7c83fd; margin-bottom: 0.6rem; font-weight: 600;
-    }
-    .card p { color: #999; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.6rem; }
-    .card p strong { color: #ccc; }
-    .card a { color: #7c83fd; font-size: 0.85rem; text-decoration: none; font-weight: 600; }
-    .card a:hover { text-decoration: underline; }
-    .card .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
-    .card .tag {
-      background: #111130; border: 1px solid #3a3a6a; color: #aaa;
-      font-size: 0.75rem; padding: 0.2rem 0.7rem; border-radius: 12px;
-    }
-    .card-detail { grid-column: 1 / -1; }
-    .card-detail h4 { font-size: 1.1rem; margin-bottom: 0.8rem; }
-    .detail-block { margin-bottom: 0.8rem; }
-    .detail-block .block-title {
-      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;
-      color: #7c83fd; font-weight: 700; margin-bottom: 0.3rem;
-    }
-    .detail-block p { color: #aaa; font-size: 0.9rem; line-height: 1.65; margin: 0; }
-    .evolution-note {
-      background: #12122a; border: 1px dashed #3a3a6a; border-radius: 8px;
-      padding: 0.8rem 1rem; margin-top: 0.6rem; color: #888; font-size: 0.85rem; line-height: 1.6;
-    }
-    .figures-row {
-      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; justify-content: flex-start;
-    }
-    .figure-item {
-      flex: 1 1 280px; max-width: 360px;
-      background: #0f0f1a; border: 1px solid #2a2a4a; border-radius: 8px; overflow: hidden;
-    }
-    .figure-item-large {
-      flex: 1 1 100%; max-width: 100%;
-      background: #0f0f1a; border: 1px solid #2a2a4a; border-radius: 8px; overflow: hidden;
-    }
-    .figure-item img, .figure-item-large img {
-      width: 100%; height: auto; display: block;
-      cursor: pointer; transition: opacity 0.2s;
-    }
-    .figure-item img:hover, .figure-item-large img:hover { opacity: 0.85; }
-    .figure-item .fig-caption, .figure-item-large .fig-caption {
-      font-size: 0.78rem; color: #666; text-align: center; padding: 0.4rem 0.6rem;
-      border-top: 1px solid #1e1e3f;
-    }
-    .figures-note {
-      font-size: 0.78rem; color: #555; font-style: italic;
-      margin-top: 0.8rem; padding: 0.5rem 0.8rem;
-      border-left: 2px solid #2a2a4a; line-height: 1.5;
-    }
-    #lightbox {
-      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85);
-      z-index: 9999; justify-content: center; align-items: center;
-    }
-    #lightbox.open { display: flex; }
-    #lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 6px; box-shadow: 0 0 40px rgba(0,0,0,0.8); }
-    #lightbox-close {
-      position: absolute; top: 1rem; right: 1.5rem;
-      color: #fff; font-size: 2rem; cursor: pointer; line-height: 1;
-    }
-    .contact-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
-    .contact-links a {
-      color: #7c83fd; text-decoration: none; font-size: 1rem;
-      border: 1px solid #7c83fd; padding: 0.6rem 1.5rem; border-radius: 25px;
-      transition: background 0.3s, color 0.3s;
-    }
-    .contact-links a:hover { background: #7c83fd; color: #fff; }
-    footer { text-align: center; padding: 2rem; color: #555; font-size: 0.85rem; }
-  
-    /* Read-more toggle */
-    .read-more-content { display: none; margin-top: 0.5rem; }
-    .read-more-content.open { display: block; }
-    .read-more-btn {
-      background: none; border: none; cursor: pointer;
-      color: #7c83fd; font-size: 0.82rem; font-weight: 600;
-      padding: 0.25rem 0; margin-top: 0.4rem; display: inline-flex;
-      align-items: center; gap: 0.3rem; transition: color 0.2s;
-    }
-    .read-more-btn:hover { color: #a0a7ff; }
-    .read-more-btn .rm-icon { font-size: 1rem; line-height: 1; transition: transform 0.2s; }
-    .read-more-btn.open .rm-icon { transform: rotate(45deg); }
-</style>
-</head>
-<body>
-  <nav>
-    <div class="logo">Jorge Riquelme</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="hero">
-    <h1>Hi, I&#39;m <span>Jorge Riquelme</span></h1>
-    <p>AI-informed Data Analyst turning complex institutional data into actionable insights.<br>Combining data architecture and applied research to build organizational intelligence — explore my work below.</p>
-    <a href="#projects" class="btn">View my projects</a>
   </div>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="about-text">
-      <p>Data Analyst with hands-on experience turning complex institutional data into actionable insights. My work spans student retention modeling, labour market analysis, and disaggregated risk analysis, grounded in real problems, self-initiated, and designed with the end user in mind.</p>
-        <p>My analytical approach combines data mart architecture to enable BI solutions with validated applied research in analytics to build organizational intelligence, integrating multilevel data sources and risk indicators to reduce information silos, drawing on frameworks developed at institutions such as Politecnico di Milano, UCSC-Chile, and Purdue University.</p>
-        <p>I work as an AI-informed analyst, leveraging AI tools critically while understanding their limitations and bias risks in institutional decision-making.</p>
-    </div>
-  </section>
+</section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">SQL</span>
-      <span class="skill-tag">Power BI</span>
-      <span class="skill-tag">Tableau</span>
-      <span class="skill-tag">Data Cleaning</span>
-      <span class="skill-tag">Data Validation</span>
-      <span class="skill-tag">Anomaly Detection</span>
-      <span class="skill-tag">Student Retention</span>
-      <span class="skill-tag">Labour Market Analysis</span>
-      <span class="skill-tag">Git &amp; GitHub</span>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <!-- Category 1 -->
-    <div class="project-category">
-      <h3>Data Analysis &amp; Auditing</h3>
-      <p class="category-desc">Python — focused on data quality: cleaning, validation, and anomaly detection.</p>
-      <div class="projects-grid">
-        <div class="card">
-          <div class="card-section-label">Coming soon</div>
-          <h4>Data Quality Pipeline</h4>
-          <p>Automated auditing workflow for institutional datasets — detecting duplicates, schema violations, and statistical outliers using Python and pandas.</p>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">pandas</span>
-            <span class="tag">Data Auditing</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Category 2 -->
-    <div class="project-category">
-      <h3>Visualization &amp; Dashboards</h3>
-      <p class="category-desc">Power BI as the primary tool (embed via &quot;Publish to Web&quot;), Tableau Public as secondary, and Python visualizations.</p>
-      <div class="projects-grid">
-
-        <div class="card card-detail">
-          <div class="card-section-label">Power BI &middot; In development</div>
-          <h4>Student Retention Analysis: From Static Reports to Interactive Dashboards</h4>
-
-          <div class="detail-block">
-            <div class="block-title">The Problem</div>
-            <p>Retention reports existed but were not fully actionable. The source dataset presented significant structural complexity — over 20,000 rows, nearly 50 columns combining dimensions and calculated fields, and coding conventions that evolved over time. Additional challenges included unidentified transfer students and records that could not be reliably linked back to the original cohort. Visuals were embedded as low-resolution screenshots in Word documents, making year-over-year comparison difficult and limiting accessibility for non-technical stakeholders who needed to act on the findings.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">The Approach</div>
-            <p>Rather than rebuilding from scratch, I first understood the existing calculation logic — how retention rates were computed, how cohorts were tracked across semesters, and critically, how institutional retention differed from program-level retention. Transfer students needed to be identified and separated from the original cohort to produce meaningful program-level metrics. From there, I redesigned the visualization iteratively, applying churn analysis principles from business intelligence to an academic context — where the student is the equivalent of a customer, and semester-to-semester retention is the equivalent of churn.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">The Starting Point</div>
-            <p>The existing retention reports consisted of tabular views tracking cohort enrollment from application through multiple semesters, segmented by student population, combined with bar charts showing retention rates by cohort term and a secondary axis tracking total students lost per period. At this stage, institutional retention was not yet disaggregated from program-level retention — transfer students were not separately identified, and cohort tracking was not consistently linked back to the original Semester 1 intake. While the data was sound, static figures concentrated large volumes of information into a single view.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">My Redesign &#8212; Program Retention Table</div>
-            <p>An improved tabular view applying churn analysis principles to retention reporting — tracking cohort progression across semesters (Semester 1 through Semester 5) on the horizontal axis, with retention percentages on the vertical dimension, segmented by domestic (RES) and international (NRES) students. The staircase effect created by cohort maturity versus newer intakes makes attrition patterns immediately readable.</p>
-            <p style="margin-top:0.5rem; color:#aaa; font-size:0.9rem; line-height:1.65;">This format represented a significant improvement in accessibility over previous reports, though it remained static. It served as the analytical foundation for the subsequent Power BI implementation, which introduced dynamic filtering and historical benchmarking.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="figures-row" style="margin-top:1rem;">
-              <div class="figure-item-large">
-                <img src="images/Image 003.png" alt="Figure 3 — Redesigned churn-style retention chart" onclick="openLightbox(this.src)" />
-                <div class="fig-caption" style="font-size:1rem; font-weight:600; color:#a0a7ff; padding:0.6rem 0.8rem;">Cohort Progression Across Semesters &#8212; Program-Level Retention Rate</div>
-              </div>
-            </div>
-            <p class="figures-note">&#9888;&#65039; Note: All visuals are reference images recreated with synthetic data to preserve institutional confidentiality. The redesign approach was self-initiated within the scope of an institutional reporting role at a post-secondary institution in Canada.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">The Result</div>
-            <p>The same underlying data, presented with the right structure and design, became a tool for decision-making rather than a reporting obligation. Stakeholders could identify programs with declining retention, compare current cohorts against historical benchmarks, and segment results by population — without requiring analytical expertise to interpret the output.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">Next Step</div>
-            <p>The static redesign served as the foundation for a Power BI implementation — enabling dynamic comparison of current cohort performance against historical averages, with filters by student population and campus. Institutional retention and program-level retention are presented as separate metrics, giving stakeholders a complete picture of both overall student persistence and program-specific outcomes. This stage is currently in development using synthetic data.</p>
-          </div>
-
-          <div class="detail-block">
-            <div class="block-title">Transferability</div>
-            <p>This analytical approach mirrors churn analysis in business intelligence — applicable to any domain where tracking cohort behavior over time is critical: SaaS customer retention, patient follow-up in healthcare, employee retention in HR, or client persistence in financial services.</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">Power BI</span>
-            <span class="tag">Python</span>
-            <span class="tag">Churn Analysis</span>
-            <span class="tag">Student Retention</span>
-            <span class="tag">Data Visualization</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Category 3 -->
-    <div class="project-category">
-      <h3>Education Domain Projects</h3>
-      <p class="category-desc">Independent pilots and proposals — student retention, early alert systems, academic performance, multi-level integration.</p>
-      <div class="projects-grid">
-        <div class="card">
-          <div class="card-section-label">Independent pilot</div>
-          <h4>Early Alert System Prototype</h4>
-          <p>Risk stratification model combining academic performance and engagement signals to flag at-risk students before the withdrawal deadline.</p>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Risk Modeling</span>
-            <span class="tag">Education</span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-section-label">Kaggle &#8212; Transferability</div>
-          <h4>Kaggle Projects</h4>
-          <p>Applied education-domain analytical methods to open datasets in healthcare and workforce domains — demonstrating transferability of the same modeling and auditing approach.</p>
-          <div class="tags">
-            <span class="tag">Kaggle</span>
-            <span class="tag">Python</span>
-            <span class="tag">Cross-domain</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-links">
-      <a href="https://github.com/arman2riquelme" target="_blank">GitHub</a>
-      <a href="mailto:arman2.riquelme@gmail.com">Email</a>
-      <a href="https://linkedin.com/in/tu-perfil" target="_blank">LinkedIn</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 Jorge Riquelme &middot; Built with GitHub Pages</p>
-  </footer>
-
-  <!-- Lightbox -->
-  <div id="lightbox">
-    <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-img" src="" alt="Full size figure" />
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-links">
+    <a href="https://github.com/arman2riquelme" target="_blank">GitHub</a>
+    <a href="mailto:arman2.riquelme@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/tu-perfil" target="_blank">LinkedIn</a>
   </div>
+</section>
 
-  <script>
-    function openLightbox(src) {
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').classList.add('open');
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-    }
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-      if (e.target === this) closeLightbox();
-    });
-  </script>
+<footer>
+  <p>&copy; 2026 Jorge Riquelme &middot; Built with GitHub Pages</p>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="Full size figure" />
+</div>
+
+<script>
+  function toggleReadMore(btn) {
+    const content = btn.nextElementSibling;
+    const isOpen = content.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.innerHTML = isOpen
+      ? '<span class="rm-icon">+</span> Show less'
+      : '<span class="rm-icon">+</span> Read more';
+  }
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+</script>
+
 </body>
 </html>
