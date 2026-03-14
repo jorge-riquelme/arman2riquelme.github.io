@@ -369,55 +369,7 @@
           <p class="case-note">Audit developed independently within an institutional reporting role. Findings represent original analytical work on data integrity and cross-industry logic application.</p>
         </div>
       </div>
-    </div> <div id="panel-visualization" class="project-panel">
-      <div class="case-card">
-        <div class="case-header" onclick="toggleAccordion(this)">
-          <div class="case-info">
-            <div class="case-tag">Visualization &amp; Dashboards &middot; Power BI</div>
-            <h3 class="case-title">Student Retention Analysis: From Static Reports to Interactive Dashboards</h3>
-          </div>
-          <div class="case-icon">+</div>
-        </div>
-        <div class="case-body">
-          <div class="case-section">
-            <div class="case-section-title">The Problem</div>
-            <p>Retention reports existed but were not fully actionable — visuals were static screenshots embedded in Word documents, making year-over-year comparison difficult and limiting accessibility for non-technical stakeholders. The underlying dataset added complexity: over 20,000 rows, nearly 50 columns, and unidentified transfer students that distorted program-level metrics.</p>
-            <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
-            <div class="read-more-content"><p>The source dataset combined dimensions and calculated fields with coding conventions that evolved over time. Records could not be reliably linked back to the original cohort, and transfer students were not separately identified — making it impossible to distinguish institutional retention from program-level retention without first resolving these structural issues.</p></div>
-          </div>
-          <div class="case-section">
-            <div class="case-section-title">The Approach</div>
-            <p>Rather than rebuilding from scratch, I first understood the existing calculation logic — how retention rates were computed, how cohorts were tracked, and critically, how institutional retention differed from program-level retention. From there, I redesigned the visualization applying churn analysis principles: the student as the equivalent of a customer, semester-to-semester retention as the equivalent of churn.</p>
-            <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
-            <div class="read-more-content"><p>Transfer students needed to be identified and separated from the original cohort to produce meaningful program-level metrics. The redesign was iterative — each version tested against the question: can a non-technical stakeholder act on this?</p></div>
-          </div>
-          <div class="case-section">
-            <div class="case-section-title">My Redesign — Program Retention Table</div>
-            <p>An improved tabular view tracking cohort progression across semesters (Semester 1 through Semester 5) on the horizontal axis, with retention percentages on the vertical dimension, segmented by domestic (RES) and international (NRES) students. The staircase effect makes attrition patterns immediately readable.</p>
-            <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
-            <div class="read-more-content"><p>This format represented a significant improvement in accessibility over previous reports, though it remained static. It served as the analytical foundation for the subsequent Power BI implementation, which introduced dynamic filtering and historical benchmarking.</p></div>
-            <div class="case-image" style="margin-top:1.2rem;"><img src="images/2026-03-10 14_55_37-Mock Data_Retention - Excel.png" alt="Cohort Progression Table"/><div class="case-image-caption">Figure 1: Cohort Progression Across Semesters — Program-Level Retention Rate. Visual redesigned with churn analysis principles.</div></div>
-          </div>
-          <div class="case-section">
-            <div class="case-section-title">The Result</div>
-            <p>The same underlying data, presented with the right structure, became a tool for decision-making rather than a reporting obligation. The vertical axis represents time — each row is a cohort intake. The horizontal axis tracks semester progression. The staircase effect is intentional: newer cohorts have fewer semesters of data, while older cohorts show the full retention trajectory. Stakeholders could identify programs with declining retention, compare cohorts, and segment by domestic and international students — without requiring analytical expertise.</p>
-          </div>
-          <div class="case-section">
-            <div class="case-section-title">Next Step</div>
-            <p>Currently building a Power BI implementation enabling dynamic filtering by population and campus, with institutional and program-level retention presented as separate metrics.</p>
-          </div>
-          <div class="case-section">
-            <div class="case-section-title">Transferability</div>
-            <p>This analytical approach mirrors churn analysis in business intelligence — applicable to SaaS customer retention, patient follow-up in healthcare, employee retention in HR, or client persistence in financial services.</p>
-          </div>
-          <p class="case-note">Visual recreated with synthetic data for portfolio purposes. Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada.</p>
-        </div>
-      </div>
-    </div>
-
-     
-    
-    <!-- PANEL: Visualization & Dashboards -->
+    </div><!-- PANEL: Visualization & Dashboards -->
     <div id="panel-visualization" class="project-panel">
 
       <div class="case-card">
@@ -531,7 +483,13 @@
   </iframe>
 </div>
             <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — mock data for portfolio purposes. Built with Power BI Publish to Web.</p>
+              </div>
+            </div>
+            <p class="case-note">Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada. Recreated with synthetic data for portfolio purposes.</p>
           </div>
+        </div>
+      </div>
+    </div>
 
     
     <!-- PANEL: Education Domain -->
