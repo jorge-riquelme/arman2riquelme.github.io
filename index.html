@@ -378,7 +378,7 @@
     </div>
     <div class="case-icon">&minus;</div>
   </div>
-  <div class="case-body" style="max-height:6000px;padding:1.5rem 2.5rem 2.5rem;opacity:1;border-top:1px solid var(--border);">
+  <div class="case-body">
 
     <div class="case-section">
       <div class="case-section-title">Context</div>
@@ -403,23 +403,23 @@
       <div class="case-section-title">The Flag System</div>
       <p>Eight boolean columns reconstruct the full student lifecycle. Each flag represents a distinct institutional event:</p>
       <div style="overflow-x:auto;margin-top:1rem;">
-        <table>
+        <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
           <thead>
             <tr>
-              <th>Flag</th>
-              <th>Trigger</th>
-              <th>Event Type</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Flag</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Trigger</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Event Type</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><code>is_transfer_in</code></td><td>Cohort = 0</td><td>Entry without Semester 1</td></tr>
-            <tr><td><code>is_repeating</code></td><td>Same semester in a later term</td><td>Stalled progression</td></tr>
-            <tr><td><code>is_moving</code></td><td>Left program incomplete → new program</td><td>Loss event</td></tr>
-            <tr><td><code>is_pathway</code></td><td>Completed program → new program</td><td>Voluntary continuation</td></tr>
-            <tr><td><code>is_subsequent_program</code></td><td>Student had a prior program</td><td>Multi-program trajectory</td></tr>
-            <tr><td><code>is_program_incomplete</code></td><td>No return, program ended, not completed</td><td>Confirmed attrition</td></tr>
-            <tr><td><code>is_final_record</code></td><td>Latest row per Student + Program + Cohort</td><td>De-duplication anchor</td></tr>
-            <tr><td><code>student_completed</code></td><td>Max Semester = Program Length</td><td>Completion status</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);"><code>is_transfer_in</code></td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Cohort = 0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Entry without Semester 1</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);"><code>is_repeating</code></td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Same semester in a later term</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Stalled progression</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);"><code>is_moving</code></td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Left program incomplete → new program</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Loss event</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);"><code>is_pathway</code></td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Completed program → new program</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Voluntary continuation</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);"><code>is_subsequent_program</code></td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Student had a prior program</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Multi-program trajectory</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);"><code>is_program_incomplete</code></td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">No return, program ended, not completed</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Confirmed attrition</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);"><code>is_final_record</code></td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Latest row per Student + Program + Cohort</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">De-duplication anchor</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);"><code>student_completed</code></td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Max Semester = Program Length</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Completion status</td></tr>
           </tbody>
         </table>
       </div>
@@ -438,26 +438,26 @@
       <div class="case-section-title">Cohort Flow at a Glance</div>
       <p>Applied at <code>Cohort + Program + Campus + Semester</code> level, the flags produce a flow table where every student is accounted for across the full program lifecycle:</p>
       <div style="overflow-x:auto;margin-top:1rem;">
-        <table>
+        <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
           <thead>
             <tr>
-              <th>Cohort</th>
-              <th>Program</th>
-              <th>Campus</th>
-              <th>Semester</th>
-              <th style="text-align:right;">Started</th>
-              <th style="text-align:right;">Retained</th>
-              <th style="text-align:right;">Moving</th>
-              <th style="text-align:right;">Pathway</th>
-              <th style="text-align:right;">Incomplete</th>
-              <th style="text-align:right;">Transfer_In</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Cohort</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Program</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Campus</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Semester</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Started</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Retained</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Moving</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Pathway</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Incomplete</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Transfer_In</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>202408</td><td>Business Admin</td><td>A</td><td style="text-align:center;">1</td><td style="text-align:right;">45</td><td style="text-align:right;">38</td><td style="text-align:right;">3</td><td style="text-align:right;">0</td><td style="text-align:right;">4</td><td style="text-align:right;">0</td></tr>
-            <tr><td>202408</td><td>Business Admin</td><td>A</td><td style="text-align:center;">2</td><td style="text-align:right;">38</td><td style="text-align:right;">35</td><td style="text-align:right;">1</td><td style="text-align:right;">2</td><td style="text-align:right;">0</td><td style="text-align:right;">2</td></tr>
-            <tr><td>202408</td><td>Business Admin</td><td>A</td><td style="text-align:center;">3</td><td style="text-align:right;">35</td><td style="text-align:right;">33</td><td style="text-align:right;">0</td><td style="text-align:right;">0</td><td style="text-align:right;">2</td><td style="text-align:right;">0</td></tr>
-            <tr><td>202408</td><td>Business Admin</td><td>A</td><td style="text-align:center;">4</td><td style="text-align:right;color:var(--text);">33</td><td style="text-align:right;">33</td><td style="text-align:right;">0</td><td style="text-align:right;color:var(--gold);">33</td><td style="text-align:right;">0</td><td style="text-align:right;">0</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">202408</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Business Admin</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">A</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:center;">1</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">45</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">38</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">3</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">4</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">202408</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Business Admin</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">A</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:center;">2</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">38</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">35</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">1</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">2</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">2</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">202408</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Business Admin</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">A</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:center;">3</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">35</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">33</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">2</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">202408</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Business Admin</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">A</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:center;">4</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;color:var(--text);">33</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">33</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;color:var(--gold);">33</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td></tr>
           </tbody>
         </table>
       </div>
