@@ -1,2 +1,2 @@
-# arman2riquelme.github.io
+# jorge-riquelme.github.io
 Mi portafolio personal
