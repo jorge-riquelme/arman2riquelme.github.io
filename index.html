@@ -169,19 +169,19 @@
         </div>
         <div class="case-body">
           <div class="case-section">
-            <div class="case-section-title">The Problem</div>
+            <div class="case-section-title">Problem</div>
             <p>Class failure rates were tracked institutionally, but reported as aggregate figures — masking the underlying factors driving student underperformance. The question was not just <em>how many</em> students were failing, but <em>which conditions</em> were most strongly associated with failure.</p>
             <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
             <div class="read-more-content"><p>Existing reports did not disaggregate failure rates by demographic, engagement, or support dimensions, making it difficult to design targeted interventions. Funding Code was treated carefully — subcategories were aggregated to avoid overidentification of specific demographic groups while still capturing the financial dimension of student risk.</p></div>
           </div>
           <div class="case-section">
-            <div class="case-section-title">The Approach</div>
+            <div class="case-section-title">Approach</div>
             <p>Using Python, I cross-referenced Cognos reports to build a multi-dimensional dataset spanning three indicator groups: Demographic Insights, Educational Engagement, and Background and Support. The analysis combined descriptive statistics, clustering, correlation analysis, and linear regression — with a deliberate bias reduction strategy that avoided individual identifiers and program-specific data.</p>
             <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
             <div class="read-more-content"><p>The dataset was built by cross-referencing multiple Cognos reports — not a single extract. Each indicator group required separate data preparation before the dimensions could be combined for analysis. This foundation also serves as the dimensional structure for a future Power BI implementation, where each indicator group becomes a slicer enabling dynamic filtering.</p></div>
           </div>
           <div class="case-section">
-            <div class="case-section-title">The Visual</div>
+            <div class="case-section-title">Results</div>
             <p>The chart shows average failed classes per metric across three indicator groups — offering a balanced view among indicators, metrics, and submetrics.</p>
             <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--gold);"><em>In this recreation using synthetic data, the following patterns can be observed:</em></p>
             <ul style="margin-top:0.5rem;padding-left:1.2rem;font-size:0.88rem;color:var(--muted);">
@@ -193,11 +193,11 @@
             <div class="case-image"><img src="images/average_class_failure_rates.png" alt="Average Class Failure Rates per Metric"/><div class="case-image-caption">Figure 1: Average Class Failure Rates per Metric</div></div>
           </div>
           <div class="case-section">
-            <div class="case-section-title">The Finding</div>
+            <div class="case-section-title">Impact</div>
             <p>Financial circumstances, represented by Funding Code, emerged as the strongest predictor of class failure — stronger than gender, age, or residency status. This challenges assumptions that demographic identity is the primary risk factor, and points toward financial support systems as a higher-leverage intervention point.</p>
           </div>
           <div class="case-section">
-            <div class="case-section-title">Transferability</div>
+            <div class="case-section-title">Impact</div>
             <p>This analytical framework applies directly to healthcare (readmission risk), HR (employee turnover), and credit risk modeling — any domain where disaggregated risk analysis can identify systemic factors behind individual outcomes.</p>
           </div>
           <p class="case-note">Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada. Recreated with synthetic data for portfolio purposes.</p>
@@ -214,13 +214,13 @@
         </div>
         <div class="case-body">
           <div class="case-section">
-            <div class="case-section-title">The Audit</div>
+            <div class="case-section-title">Context</div>
             <p>Wide-format datasets are the standard output of legacy administrative systems — efficient for storage and transactional reporting, but structurally limited for dynamic BI analysis. This case documents the audit and transformation of a retention dataset typical of Ontario post-secondary institutions: 985 rows and 33 columns, where semester-retention values are embedded directly in column names rather than stored as rows.</p>
             <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
             <div class="read-more-content"><p>The audit process began by mapping the dataset composition: five descriptive columns (academic year, cohort term, program, campus, ministry codes) followed by 18 retention columns encoding both the semester number (1-6) and student type within the column name itself. This wide structure, while readable as a static report, prevents dynamic filtering by semester or student type without creating individual measures for each column.</p></div>
           </div>
           <div class="case-section">
-            <div class="case-section-title">Dataset Structure — Original Format</div>
+            <div class="case-section-title">Results — Original Structure</div>
             <p>Wide-format structure where each semester and student type occupies a separate column — 18 retention columns embedded in column names, making dynamic slicing in Power BI impractical:</p>
             <div style="overflow-x:auto;margin-top:1rem;">
               <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
@@ -249,7 +249,7 @@
             <p style="margin-top:0.6rem;font-size:0.78rem;color:var(--muted);font-style:italic;">985 rows x 33 columns — 18 of which are semester-retention values embedded in column names (SEM1-SEM6 x Total / DOM / INT)</p>
           </div>
           <div class="case-section">
-            <div class="case-section-title">The Transformation</div>
+            <div class="case-section-title">Approach</div>
             <p>Using Python, the dataset was unpivoted from wide to long format — extracting the semester number from column names into a dedicated field. The result reduces 33 columns to 6, making the data natively compatible with Power BI slicers and DAX measures. Demographic dimensions are added separately via foreign key joins:</p>
             <div style="overflow-x:auto;margin-top:1rem;">
               <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
@@ -271,15 +271,15 @@
             <p style="margin-top:0.6rem;font-size:0.78rem;color:var(--muted);font-style:italic;">Long format — one row per program, campus, and semester. What previously required 18 static measures becomes a single Students field.</p>
           </div>
           <div class="case-section">
-            <div class="case-section-title">Second Transformation — Adding Dimensions</div>
+            <div class="case-section-title">Approach — Dimension Layer</div>
             <p>A foreign key was constructed to enable joins with dimension tables — adding demographic, program, and enrollment context without embedding it in the base retention structure. This separation of concerns keeps the retention layer clean and scalable as additional data sources are connected.</p>
           </div>
           <div class="case-section">
-            <div class="case-section-title">A Note on Cohort Tracking</div>
+            <div class="case-section-title">Context — Cohort Tracking</div>
             <p>Institutional enrollment data is typically aggregated at the program-cohort level, not at the individual student level. To support cohort tracking across semesters, the dataset was restructured using enrollment data as the foundation — making it possible to distinguish organic retention from other enrollment movements that aggregate reporting does not capture by default. Cohort-level program tracking is developed further in Case 2.</p>
           </div>
           <div class="case-section">
-            <div class="case-section-title">The Result</div>
+            <div class="case-section-title">Results</div>
             <p>A long-format structure ready to calculate institutional and program-level retention rates dynamically — with a foundation that scales to include additional dimensions as data sources are connected via foreign keys. What previously required 18 static measures becomes a single analytical layer adaptable to any reporting need.</p>
           </div>
           <p class="case-note">Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada. Dataset structure illustrated with synthetic data for portfolio purposes.</p>
@@ -296,7 +296,7 @@
         </div>
         <div class="case-body">
           <div class="case-section">
-            <div class="case-section-title">The Audit</div>
+            <div class="case-section-title">Context</div>
             <p>Institutional retention is often reported as an aggregate figure, assuming a linear progression where "Semester 1" represents the same starting point for all records. This audit identified a critical <strong>Attribution Bias</strong>: the mixing of true freshmen with internal transfer students within program-level cohorts.</p>
             <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
             <div class="read-more-content">
@@ -305,7 +305,7 @@
           </div>
 
           <div class="case-section">
-            <div class="case-section-title">The Cohort Contradiction</div>
+            <div class="case-section-title">Problem</div>
             <p>Comparison of data integrity status across analysis levels. The current model assumes a linear path that does not exist for 15-20% of the population:</p>
             <div style="overflow-x:auto;margin-top:1rem;">
               <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
@@ -333,7 +333,7 @@
           </div>
 
           <div class="case-section">
-            <div class="case-section-title">Cascading Impact</div>
+            <div class="case-section-title">Problem — Cascading Impact</div>
             <p>The lack of data atomicity triggers a domino effect across institutional KPIs, leading to skewed strategic decisions:</p>
             <ul style="margin-top:0.5rem;padding-left:1.2rem;font-size:0.88rem;color:var(--muted);">
               <li><strong style="color:var(--text);">Retention Inflation:</strong> Transfers (higher success probability) artificially boost averages, masking the real dropout rate of vulnerable freshmen.</li>
@@ -343,7 +343,7 @@
           </div>
 
           <div class="case-section">
-            <div class="case-section-title">The Solution: Atomic Architecture</div>
+            <div class="case-section-title">Approach</div>
             <p>I proposed a transition toward <strong>Data Atomicity</strong> to restore system integrity. This framework enables dynamic segmentation without losing historical context:</p>
             <div class="read-more-content" style="display:block; background:rgba(255,215,0,0.05); padding:1rem; border-radius:4px; border-left:3px solid var(--gold);">
               <ul style="list-style:none;padding-left:0;font-size:0.88rem;color:var(--muted);">
@@ -355,7 +355,7 @@
           </div>
 
           <div class="case-section">
-            <div class="case-section-title">Transferability &amp; Industry Parallels</div>
+            <div class="case-section-title">Impact</div>
             <p>The "Cohort Contradiction" is a structural data flaw applicable to any sector where aggregated reporting masks the origin or lifecycle of the subject.</p>
             <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
             <div class="read-more-content">
@@ -386,12 +386,12 @@
     </div>
 
     <div class="case-section">
-      <div class="case-section-title">The Problem</div>
+      <div class="case-section-title">Problem</div>
       <p>Institutional enrollment data arrives as a flat transaction file. Each row represents a student-program-semester record, but nothing in the raw data distinguishes a student who dropped out from one who transferred programs, completed their credential, or simply repeated a semester. Aggregate retention formulas — built on <code>Sem N − Sem N+1</code> subtractions — collapse these distinct events into a single number, hiding the destination.</p>
     </div>
 
     <div class="case-section">
-      <div class="case-section-title">The Approach</div>
+      <div class="case-section-title">Approach</div>
       <p>Rather than filtering or removing records, the transformation was applied directly on top of the raw enrollment file. Every transaction was preserved and labeled through a flag architecture — eight boolean columns that reconstruct the full student lifecycle without altering the audit trail.</p>
       <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
       <div class="read-more-content">
@@ -400,7 +400,7 @@
     </div>
 
     <div class="case-section">
-      <div class="case-section-title">The Flag System</div>
+      <div class="case-section-title">Results</div>
       <p>Eight boolean columns reconstruct the full student lifecycle. Each flag represents a distinct institutional event:</p>
       <div style="overflow-x:auto;margin-top:1rem;">
         <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
@@ -426,7 +426,7 @@
     </div>
 
     <div class="case-section">
-      <div class="case-section-title">The Accounting Rule</div>
+      <div class="case-section-title">Results — Accounting Rule</div>
       <p>The flags enforce an accounting rule at every semester transition. Every student that starts a semester has exactly one outcome:</p>
       <div class="conservation-box">
         <p>This identity is what traditional retention formulas cannot guarantee. A subtraction hides the destination. A flag reveals it.</p>
@@ -435,7 +435,7 @@
     </div>
 
     <div class="case-section">
-      <div class="case-section-title">Cohort Flow at a Glance</div>
+      <div class="case-section-title">Results — Cohort Flow</div>
       <p>Applied at <code>Cohort + Program + Campus + Semester</code> level, the flags produce a flow table where every student is accounted for across the full program lifecycle:</p>
       <div style="overflow-x:auto;margin-top:1rem;">
         <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
@@ -465,7 +465,7 @@
     </div>
 
   <div class="case-section">
-  <div class="case-section-title">One Dataset, Two Questions</div>
+  <div class="case-section-title">Impact</div>
   <p>The flag architecture produces two complementary views from the same source — consistent by construction, no reconciliation required:</p>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
     <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;padding:1rem;">
@@ -484,12 +484,12 @@
 </div>
 
     <div class="case-section">
-      <div class="case-section-title">Why This Matters</div>
+      <div class="case-section-title">Impact — Why This Matters</div>
       <p>This is not a statistical model. It is a formula architecture: reproducible, auditable, and built to be wrong-proof. Every flag is independently verifiable, every outcome traceable to a specific row. The pipeline can be re-run on any future dataset and produce consistent results by construction — applicable to any domain where lifecycle events are currently collapsed into aggregate subtraction metrics.</p>
     </div>
 
     <div class="case-section">
-      <div class="case-section-title">Next Step — Live in Power BI</div>
+      <div class="case-section-title">Next Steps</div>
       <p>A Power BI report built on this flag layer is currently in development. It will be published here as a companion to this case.</p>
       <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;padding:2rem;text-align:center;background:rgba(212,175,55,0.03);">
         <p style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--gold);letter-spacing:0.1em;">[ IN CONSTRUCTION ]</p>
@@ -513,34 +513,34 @@
         </div>
         <div class="case-body">
           <div class="case-section">
-            <div class="case-section-title">The Problem</div>
+            <div class="case-section-title">Problem</div>
             <p>Retention reports existed but were not fully actionable — visuals were static screenshots embedded in Word documents, making year-over-year comparison difficult and limiting accessibility for non-technical stakeholders. The underlying dataset added complexity: over 20,000 rows, nearly 50 columns, and unidentified transfer students that distorted program-level metrics.</p>
             <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
             <div class="read-more-content"><p>The source dataset combined dimensions and calculated fields with coding conventions that evolved over time. Records could not be reliably linked back to the original cohort, and transfer students were not separately identified — making it impossible to distinguish institutional retention from program-level retention without first resolving these structural issues.</p></div>
           </div>
           <div class="case-section">
-            <div class="case-section-title">The Approach</div>
+            <div class="case-section-title">Approach</div>
             <p>Rather than rebuilding from scratch, I first understood the existing calculation logic — how retention rates were computed, how cohorts were tracked, and critically, how institutional retention differed from program-level retention. From there, I redesigned the visualization applying churn analysis principles: the student as the equivalent of a customer, semester-to-semester retention as the equivalent of churn.</p>
             <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
             <div class="read-more-content"><p>Transfer students needed to be identified and separated from the original cohort to produce meaningful program-level metrics. The redesign was iterative — each version tested against the question: can a non-technical stakeholder act on this?</p></div>
           </div>
           <div class="case-section">
-            <div class="case-section-title">My Redesign — Program Retention Table</div>
+            <div class="case-section-title">Results</div>
             <p>An improved tabular view tracking cohort progression across semesters (Semester 1 through Semester 5) on the horizontal axis, with retention percentages on the vertical dimension, segmented by domestic (RES) and international (NRES) students. The staircase effect makes attrition patterns immediately readable.</p>
             <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
             <div class="read-more-content"><p>This format represented a significant improvement in accessibility over previous reports, though it remained static. It served as the analytical foundation for the subsequent Power BI implementation, which introduced dynamic filtering and historical benchmarking.</p></div>
             <div class="case-image" style="margin-top:1.2rem;"><img src="images/2026-03-10 14_55_37-Mock Data_Retention - Excel.png" alt="Cohort Progression Table"/><div class="case-image-caption">Figure 1: Cohort Progression Across Semesters — Program-Level Retention Rate. Visual redesigned with churn analysis principles.</div></div>
           </div>
           <div class="case-section">
-            <div class="case-section-title">The Result</div>
+            <div class="case-section-title">Results</div>
             <p>The same underlying data, presented with the right structure, became a tool for decision-making rather than a reporting obligation. The vertical axis represents time — each row is a cohort intake. The horizontal axis tracks semester progression. The staircase effect is intentional: newer cohorts have fewer semesters of data, while older cohorts show the full retention trajectory. Stakeholders could identify programs with declining retention, compare cohorts, and segment by domestic and international students — without requiring analytical expertise.</p>
           </div>
           <div class="case-section">
-            <div class="case-section-title">Next Step</div>
+            <div class="case-section-title">Next Steps</div>
             <p>Currently building a Power BI implementation enabling dynamic filtering by population and campus, with institutional and program-level retention presented as separate metrics.</p>
           </div>
           <div class="case-section">
-            <div class="case-section-title">Transferability</div>
+            <div class="case-section-title">Impact</div>
             <p>This analytical approach mirrors churn analysis in business intelligence — applicable to SaaS customer retention, patient follow-up in healthcare, employee retention in HR, or client persistence in financial services.</p>
           </div>
           <p class="case-note">Visual recreated with synthetic data for portfolio purposes. Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada.</p>
@@ -557,22 +557,22 @@
         </div>
         <div class="case-body">
           <div class="case-section">
-            <div class="case-section-title">The Problem</div>
+            <div class="case-section-title">Problem</div>
             <p>Institutions implement academic alert systems but rarely have a method to measure whether those interventions actually changed student trajectories. Reports show who is at risk — but not whether the system moved them.</p>
           </div>
           <div class="case-section">
-            <div class="case-section-title">The Approach</div>
+            <div class="case-section-title">Approach</div>
             <p>Using Python, I redesigned the academic standing dataset by assigning each student two states: their standing at the start of the semester and their standing at the end. This creates a transition matrix — borrowed from data science and actuarial modeling — that makes movement between states visible and measurable.</p>
             <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
             <div class="read-more-content"><p>The transformation also serves as a foundation for building risk indices when enriched with campus, demographic, program, and course-level parameters — enabling contextual aggregation that reduces individual identification bias.</p></div>
           </div>
           <div class="case-section">
-            <div class="case-section-title">The Visual</div>
+            <div class="case-section-title">Results</div>
             <p>The heatmap shows student transitions across five academic standing states — Academic Intervention, Academic Probation 1-3, and Good Standing. Each cell represents the number of students who moved from one state (previous semester) to another (current semester). The diagonal represents students who maintained their standing. Off-diagonal cells reveal movement in both directions.</p>
             <div class="case-image"><img src="images/academic_transition_heatmap.png" alt="Academic Standing Transition Heatmap"/><div class="case-image-caption">Figure 1: Academic Standing Transition Matrix. Recreated with synthetic data for portfolio purposes.</div></div>
           </div>
           <div class="case-section">
-            <div class="case-section-title">Dataset Structure</div>
+            <div class="case-section-title">Results — Dataset Structure</div>
             <p>The transformation produces a three-column dataset — ready to load directly into Power BI as a matrix table or Sankey chart:</p>
             <div style="overflow-x:auto;margin-top:1rem;">
               <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
@@ -593,12 +593,12 @@
             <p style="margin-top:0.75rem;font-size:0.8rem;color:var(--muted);font-style:italic;">Sample structure — synthetic data for illustration purposes.</p>
           </div>
           <div class="case-section">
-            <div class="case-section-title">Longitudinal Potential &amp; Bias Reduction</div>
+            <div class="case-section-title">Impact</div>
             <p>Applying the same transformation consistently across academic periods generates historical metrics — enabling the institution to track whether recovery rates are improving and whether interventions actually shifted trajectories over time.</p>
             <p style="margin-top:0.6rem;">When results are aggregated by context — program, campus, semester, or demographic group — rather than at the individual level, the matrix reduces identification bias. Risk becomes a property of the learning environment, not a label assigned to the student. This allows institutions to ask a fundamentally different question: not <em>which students are failing</em>, but <em>under which conditions does failure concentrate</em>.</p>
           </div>
           <div class="case-section">
-            <div class="case-section-title">Next Step — Live in Power BI</div>
+            <div class="case-section-title">Next Steps</div>
             <p>This dataset structure feeds directly into Power BI as a Sankey chart, enabling dynamic filtering by campus, program, demographics, and semester. The model below is a working implementation built on mock data — interact with it directly:</p>
             <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
   <iframe
@@ -636,12 +636,12 @@
         <div class="case-body">
 
           <div class="case-section">
-            <div class="case-section-title">The Problem &amp; Strategic Alignment</div>
+            <div class="case-section-title">Context</div>
             <p>The Ontario postsecondary sector faces a critical barrier: <strong style="color:var(--gold);">functional data silos</strong> and a lack of <strong style="color:var(--gold);">identity-based administrative data</strong> (HEQCO 2022). Current practices—often relying on static, disconnected reports—create analytical silos and inherent bias by focusing exclusively on the student (Micro level) in isolation. This fragmented approach fails to identify systemic bottlenecks and the diverse challenges of underrepresented populations, ignoring the interplay between the learner, the curriculum, and the institution.</p>
           </div>
 
           <div class="case-section">
-            <div class="case-section-title">The Solution: A Holistic Data Ecosystem</div>
+            <div class="case-section-title">Approach</div>
             <p>More than a simple warning tool, this ecosystem transforms limited administrative data into a comprehensive analytical engine supporting multiple institutional workstreams. This framework bridges data gaps through a specialized Multidimensional Data Mart that integrates <strong style="color:var(--gold);">Historical, Real-time, and Forecast data</strong>.</p>
             <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
             <div class="read-more-content">
@@ -655,7 +655,7 @@
           </div>
 
           <div class="case-section">
-            <div class="case-section-title">The Architecture</div>
+            <div class="case-section-title">Approach — Architecture</div>
             <p>The system uses an ETL process to consolidate data from institutional warehouses into a specialized Educational Data Mart, segmented into multidimensional domains — partial grades, enrollment trends, and teaching competencies — enabling real-time visual analytics.</p>
             <div class="case-image">
               <img src="images/EWS_Diagram.png" alt="EWS Data Architecture and Analytics Layer" />
@@ -664,7 +664,7 @@
           </div>
 
           <div class="case-section">
-            <div class="case-section-title">Data Model: Constellation Schema</div>
+            <div class="case-section-title">Results</div>
             <p>The Data Mart is implemented as a <strong style="color:var(--gold);">Constellation Schema</strong> in Power BI — four fact tables (Enrollment, Retention, Grades, Graduation) sharing dimension tables across Student, Faculty, Course, and Calendar. This structure enables cross-domain analysis without data duplication.</p>
             <div class="case-image">
               <img src="images/Constellation_Schema.png" alt="Constellation Schema — Power BI Data Model" />
@@ -673,7 +673,7 @@
           </div>
           
           <div class="case-section">
-            <div class="case-section-title">Technical &amp; Research Validation</div>
+            <div class="case-section-title">Impact</div>
             <p>The architecture is strategically designed to answer the four critical questions for equitable access:</p>
             <ul style="list-style:none;padding-left:0;margin-top:0.75rem;font-size:0.88rem;color:var(--muted);">
               <li style="margin-bottom:0.4rem;"><strong style="color:var(--text);">Who:</strong> Student Demographic Dimensions.</li>
@@ -684,7 +684,7 @@
           </div>
 
           <div class="case-section">
-            <div class="case-section-title">Research Foundation</div>
+            <div class="case-section-title">Impact — Research Foundation</div>
             <p>The multilevel nested analytics approach is validated by research from <strong style="color:var(--text);">Politecnico di Milano</strong>, acknowledging that dropout probability is highly conditional on program-specific variables. Additional frameworks draw on <strong style="color:var(--text);">UCSC-Chile's</strong> multilevel model and <strong style="color:var(--text);">Purdue University's</strong> Course Signals risk predictor research.</p>
           </div>
 
