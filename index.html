@@ -658,11 +658,29 @@
             <div class="case-section-title">Approach — Architecture</div>
             <p>The system uses an ETL process to consolidate data from institutional warehouses into a specialized Educational Data Mart, segmented into multidimensional domains — partial grades, enrollment trends, and teaching competencies — enabling real-time visual analytics.</p>
             <div class="case-image">
-              <img src="images/EAS_Diagram.png" alt="EaS Data Architecture and Analytics Layer" />
+              <img src="images/EAS_Diagram.png" alt="EAS Data Architecture and Analytics Layer" />
               <div class="case-image-caption">Figure 1: EAS Data Architecture &amp; Analytics Layer — from institutional databases through ETL to Risk Index Generation and Early Alert coordination.</div>
             </div>
           </div>
 
+          <div class="case-section">
+          <div class="case-section-title">Integration of Levels in an Intelligence Ecosystem</div>
+          <p>The system organizes intelligence across three nested levels — each addressing a different layer of institutional responsibility.</p>
+          <div class="case-image">
+          <img src="images/Level_of_EAS.png" alt="EAS Levels of Intelligence" />
+          <div class="case-image-caption">Figure 2: EAS Intelligence Levels — Micro (student risk), Meso (teaching environment), and Macro (institutional outcomes).</div>
+        </div>
+      </div>
+
+          <div class="case-section">
+  <div class="case-section-title">Operational Calendar</div>
+  <p>The EAS operates through four structured sessions across the academic year, each with defined objectives and coordinated actions.</p>
+  <div class="case-image">
+    <img src="images/Analysis_Sessions.png" alt="EAS Operational Calendar" />
+    <div class="case-image-caption">Figure 3: EAS Analysis Sessions — Monitoring, Tracking, Results Analysis, and Teaching Performance Review.</div>
+  </div>
+</div>
+          
           <div class="case-section">
             <div class="case-section-title">Results</div>
             <p>The Data Mart is implemented as a <strong style="color:var(--gold);">Constellation Schema</strong> in Power BI — four fact tables (Enrollment, Retention, Grades, Graduation) sharing dimension tables across Student, Faculty, Course, and Calendar. This structure enables cross-domain analysis without data duplication.</p>
