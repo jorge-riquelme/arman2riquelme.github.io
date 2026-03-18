@@ -370,7 +370,7 @@
         </div>
       </div>
 
-      <div class="case-card">
+     <div class="case-card">
   <div class="case-header" onclick="toggleAccordion(this)">
     <div class="case-info">
       <div class="case-tag">Data Engineering &middot; Strategic BI</div>
@@ -387,25 +387,17 @@
 
     <div class="case-section">
       <div class="case-section-title">Problem</div>
-      <p>Institutional enrollment data typically arrives as flat transaction files. Standard retention formulas — built on blind aggregate subtractions — collapse critical, distinct events into a single "loss" number.</p>
-      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
-      <div class="read-more-content">
-        <p>This creates a strategic blind spot: the data cannot tell if a student who didn't return to their original program actually dropped out, transferred internally, or completed a prior credential. By ignoring the student's destination, the institution loses sight of its true capacity to retain talent.</p>
-      </div>
+      <p>Institutional enrollment data typically arrives as flat transaction files. Standard retention formulas — built on blind aggregate subtractions — collapse critical, distinct events into a single "loss" number. This creates a strategic blind spot: the data cannot tell if a student who didn't return to their original program actually dropped out, transferred internally, or completed a prior credential. By ignoring the student's destination, the institution loses sight of its true capacity to retain talent.</p>
     </div>
 
     <div class="case-section">
       <div class="case-section-title">Approach</div>
-      <p>Rather than filtering or removing records, the transformation was applied directly on top of the raw enrollment file. Every transaction was preserved and labeled through a flag architecture — eight columns that reconstruct the full student lifecycle without altering the audit trail.</p>
-      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
-      <div class="read-more-content">
-        <p>The flags enforce a conservation identity at every semester transition: <code>Started = Retained + Moving + Pathway + Incomplete</code>. This identity is what subtraction-based formulas cannot guarantee. A subtraction hides where a student went. A flag reveals it.</p>
-      </div>
+      <p>Rather than filtering or removing records, the transformation was applied directly on top of the raw enrollment file. Every transaction was preserved and labeled through a flag architecture — eight columns that reconstruct the full student lifecycle without altering the audit trail. The flags enforce a conservation identity at every semester transition: <code>Started = Retained + Moving + Pathway + Incomplete</code>. A subtraction hides where a student went. A flag reveals it.</p>
     </div>
 
     <div class="case-section">
-      <div class="case-section-title">Results — Flag Architecture</div>
-      <p>Eight calculated columns reconstruct the full student lifecycle. Each one represents a distinct institutional event:</p>
+      <div class="case-section-title">Results</div>
+      <p>Eight calculated columns reconstruct the full student lifecycle — each one mapping a distinct institutional event into a traceable, auditable outcome:</p>
       <div style="overflow-x:auto;margin-top:1rem;">
         <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
           <thead>
@@ -427,20 +419,14 @@
           </tbody>
         </table>
       </div>
-    </div>
 
-    <div class="case-section">
-      <div class="case-section-title">Results — Accounting Rule</div>
-      <p>The flags enforce an accounting rule at every semester transition. Every student that starts a semester has exactly one outcome:</p>
+      <p style="margin-top:1.2rem;">The flags enforce an accounting rule at every semester transition — every student that starts a semester has exactly one outcome:</p>
       <div class="conservation-box">
         <p>This identity is what traditional retention formulas cannot guarantee. A subtraction hides the destination. A flag reveals it.</p>
         <div class="conservation-formula"><span>Started</span> = Retained + Moving + Pathway + Incomplete</div>
       </div>
-    </div>
 
-    <div class="case-section">
-      <div class="case-section-title">Results — Cohort Flow</div>
-      <p>Applied at <code>Cohort + Program + Campus + Semester</code> level, the flags produce a flow table where every student is accounted for across the full program lifecycle:</p>
+      <p style="margin-top:1.2rem;">Applied at <code>Cohort + Program + Campus + Semester</code> level, every student is accounted for across the full program lifecycle:</p>
       <div style="overflow-x:auto;margin-top:1rem;">
         <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
           <thead>
@@ -470,7 +456,7 @@
 
     <div class="case-section">
       <div class="case-section-title">BI Output</div>
-      <p>The flag architecture produces two complementary views from the same source — consistent by construction, no reconciliation required:</p>
+      <p>The flag architecture produces two complementary views from the same source — consistent by construction, no reconciliation required. Each view surfaces what a standard retention percentage cannot: the difference between a resource allocation failure and natural academic progression.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
         <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;padding:1rem;">
           <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Layer 1 &mdash; Meso</div>
@@ -480,10 +466,6 @@
           <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Layer 2 &mdash; Flag Detail</div>
           <p style="font-size:0.85rem;color:var(--muted);">Dimensional drill-down and audit trail. <span style="color:var(--text);">Who left, why, and where did they go?</span></p>
         </div>
-      </div>
-      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
-      <div class="read-more-content">
-        <p>In Power BI this translates to a Retention vs. Persistence Map. The difference between <code>is_moving</code> and <code>is_program_incomplete</code> is not visible in a retention percentage — but it determines whether a student represents a resource allocation failure or natural academic progression. That distinction drives different interventions, different budgets, and different strategic decisions.</p>
       </div>
     </div>
 
@@ -509,6 +491,7 @@
 
   </div>
 </div>
+
 
     </div><!-- PANEL: Visualization & Dashboards -->
     <div id="panel-visualization" class="project-panel">
