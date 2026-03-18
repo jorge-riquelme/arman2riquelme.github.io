@@ -373,8 +373,8 @@
       <div class="case-card">
   <div class="case-header" onclick="toggleAccordion(this)">
     <div class="case-info">
-      <div class="case-tag">Data Analysis &amp; Auditing &middot; Python</div>
-      <h3 class="case-title">From Audit to Implementation: Atomic Journey Reconstruction</h3>
+      <div class="case-tag">Data Engineering &middot; Strategic BI</div>
+      <h3 class="case-title">From Static Audits to Dynamic Persistence: Atomic Journey Reconstruction</h3>
     </div>
     <div class="case-icon">+</div>
   </div>
@@ -382,17 +382,21 @@
 
     <div class="case-section">
       <div class="case-section-title">Context</div>
-      <p>This case is the direct implementation of the <a href="#" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-soft);">Cohort Attribution Audit</a>. The audit identified the structural flaw — misattributed cohort labels masking 15–20% of enrollment events. This case documents how that finding was resolved in practice: a flag pipeline built on the raw enrollment file that reconstructs every student trajectory without modifying the source data.</p>
+      <p>This is what comes after the audit: the practical implementation of its findings into a working BI solution. The audit identified a structural flaw — misattributed cohort labels masking 15–20% of enrollment events. This project documents the solution: a flag-based pipeline that reconstructs the actual trajectory of every student without altering source data, allowing the institution to distinguish between a student who leaves the system and one who simply changes direction internally (institutional persistence).</p>
     </div>
 
     <div class="case-section">
       <div class="case-section-title">Problem</div>
-      <p>Institutional enrollment data arrives as a flat transaction file. Each row represents a student-program-semester record, but nothing in the raw data distinguishes a student who dropped out from one who transferred programs, completed their credential, or simply repeated a semester. Aggregate retention formulas — built on <code>Sem N − Sem N+1</code> subtractions — collapse these distinct events into a single number, hiding the destination.</p>
+      <p>Institutional enrollment data typically arrives as flat transaction files. Standard retention formulas — built on blind aggregate subtractions — collapse critical, distinct events into a single "loss" number.</p>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content">
+        <p>This creates a strategic blind spot: the data cannot tell if a student who didn't return to their original program actually dropped out, transferred internally, or completed a prior credential. By ignoring the student's destination, the institution loses sight of its true capacity to retain talent.</p>
+      </div>
     </div>
 
     <div class="case-section">
       <div class="case-section-title">Approach</div>
-      <p>Rather than filtering or removing records, the transformation was applied directly on top of the raw enrollment file. Every transaction was preserved and labeled through a flag architecture — eight boolean columns that reconstruct the full student lifecycle without altering the audit trail.</p>
+      <p>Rather than filtering or removing records, the transformation was applied directly on top of the raw enrollment file. Every transaction was preserved and labeled through a flag architecture — eight columns that reconstruct the full student lifecycle without altering the audit trail.</p>
       <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
       <div class="read-more-content">
         <p>The flags enforce a conservation identity at every semester transition: <code>Started = Retained + Moving + Pathway + Incomplete</code>. This identity is what subtraction-based formulas cannot guarantee. A subtraction hides where a student went. A flag reveals it.</p>
@@ -400,8 +404,8 @@
     </div>
 
     <div class="case-section">
-      <div class="case-section-title">Results</div>
-      <p>Eight boolean columns reconstruct the full student lifecycle. Each flag represents a distinct institutional event:</p>
+      <div class="case-section-title">Results — Flag Architecture</div>
+      <p>Eight calculated columns reconstruct the full student lifecycle. Each one represents a distinct institutional event:</p>
       <div style="overflow-x:auto;margin-top:1rem;">
         <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
           <thead>
@@ -445,47 +449,52 @@
               <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Program</th>
               <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Campus</th>
               <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Semester</th>
-              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Started</th>
-              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Retained</th>
-              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Moving</th>
-              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Pathway</th>
-              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Incomplete</th>
-              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);text-align:right;">Transfer_In</th>
+              <th style="text-align:right;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Started</th>
+              <th style="text-align:right;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Retained</th>
+              <th style="text-align:right;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Moving</th>
+              <th style="text-align:right;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Pathway</th>
+              <th style="text-align:right;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Incomplete</th>
+              <th style="text-align:right;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Transfer_In</th>
             </tr>
           </thead>
           <tbody>
             <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">202408</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Business Admin</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">A</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:center;">1</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">45</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">38</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">3</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">4</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td></tr>
             <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">202408</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Business Admin</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">A</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:center;">2</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">38</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">35</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">1</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">2</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">2</td></tr>
             <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">202408</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Business Admin</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">A</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:center;">3</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">35</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">33</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">2</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td></tr>
-            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">202408</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Business Admin</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">A</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:center;">4</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;color:var(--text);">33</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">33</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;color:var(--gold);">33</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td></tr>
+            <tr><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">202408</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">Business Admin</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);">A</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:center;">4</td><td style="padding:0.5rem 0.8rem;color:var(--text);border-bottom:1px solid var(--border);text-align:right;">33</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">33</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--gold);border-bottom:1px solid var(--border);text-align:right;">33</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td><td style="padding:0.5rem 0.8rem;color:var(--muted);border-bottom:1px solid var(--border);text-align:right;">0</td></tr>
           </tbody>
         </table>
       </div>
       <p style="margin-top:0.75rem;font-size:0.82rem;color:var(--muted);font-style:italic;">45 students started. 4 did not return after Semester 1. 3 moved to another program. By Semester 4, the 33 who remained completed the program — all flagged as <code>is_pathway</code>, continuing into their next credential.</p>
     </div>
 
-  <div class="case-section">
-  <div class="case-section-title">Impact</div>
-  <p>The flag architecture produces two complementary views from the same source — consistent by construction, no reconciliation required:</p>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
-    <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;padding:1rem;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Layer 1 &mdash; Meso</div>
-      <p style="font-size:0.85rem;color:var(--muted);">Longitudinal trend reporting by program and cohort. <span style="color:var(--text);">How did cohort 202408 perform over time?</span></p>
+    <div class="case-section">
+      <div class="case-section-title">BI Output</div>
+      <p>The flag architecture produces two complementary views from the same source — consistent by construction, no reconciliation required:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;padding:1rem;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Layer 1 &mdash; Meso</div>
+          <p style="font-size:0.85rem;color:var(--muted);">Longitudinal trend reporting by program and cohort. <span style="color:var(--text);">How did cohort 202408 perform over time?</span></p>
+        </div>
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;padding:1rem;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Layer 2 &mdash; Flag Detail</div>
+          <p style="font-size:0.85rem;color:var(--muted);">Dimensional drill-down and audit trail. <span style="color:var(--text);">Who left, why, and where did they go?</span></p>
+        </div>
+      </div>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content">
+        <p>In Power BI this translates to a Retention vs. Persistence Map. The difference between <code>is_moving</code> and <code>is_program_incomplete</code> is not visible in a retention percentage — but it determines whether a student represents a resource allocation failure or natural academic progression. That distinction drives different interventions, different budgets, and different strategic decisions.</p>
+      </div>
     </div>
-    <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;padding:1rem;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Layer 2 &mdash; Flag Detail</div>
-      <p style="font-size:0.85rem;color:var(--muted);">Dimensional drill-down and audit trail. <span style="color:var(--text);">Who left, why, and where did they go?</span></p>
-    </div>
-  </div>
-  <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
-  <div class="read-more-content">
-    <p>In Power BI this translates to a retention map — Started &rarr; Retained &rarr; Pathway by cohort. The difference between is_moving and is_program_incomplete is not visible in a retention percentage, but it determines whether a student represents a resource allocation failure or a natural academic progression. That distinction drives different interventions, different budgets, and different strategic decisions.</p>
-  </div>
-</div>
 
     <div class="case-section">
-      <div class="case-section-title">Impact — Why This Matters</div>
-      <p>This is not a statistical model. It is a formula architecture: reproducible, auditable, and built to be wrong-proof. Every flag is independently verifiable, every outcome traceable to a specific row. The pipeline can be re-run on any future dataset and produce consistent results by construction — applicable to any domain where lifecycle events are currently collapsed into aggregate subtraction metrics.</p>
+      <div class="case-section-title">Impact</div>
+      <p>This is not a statistical model; it is a reproducible formula architecture built to be "wrong-proof." It empowers decision-makers with two strategic levers:</p>
+      <ul style="margin-top:0.5rem;padding-left:1.2rem;font-size:0.88rem;color:var(--muted);">
+        <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">Revenue Recovery:</strong> By identifying "Moving" students, the university can accurately quantify the tuition revenue retained through institutional persistence rather than lost to attrition.</li>
+        <li><strong style="color:var(--text);">Optimized Support:</strong> Intervention resources can be prioritized for "Incomplete" students, while career guidance targets those who demonstrated persistence but need a better academic fit.</li>
+      </ul>
+      <p style="margin-top:0.8rem;">Every outcome is independently verifiable and traceable to a specific row — applicable to any domain where lifecycle events are currently collapsed into aggregate subtraction metrics.</p>
     </div>
 
     <div class="case-section">
@@ -497,6 +506,7 @@
     </div>
 
     <p class="case-note">Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada. Dataset structure illustrated with synthetic data for portfolio purposes.</p>
+
   </div>
 </div>
 
