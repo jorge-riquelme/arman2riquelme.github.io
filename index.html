@@ -722,6 +722,111 @@
     <p class="case-note">Pilot presented to institutional leadership as a proof of concept. Dashboard rebuilt with anonymized mock data for portfolio purposes.</p>
   </div>
 </div>
+
+<div class="case-card">
+  <div class="case-header" onclick="toggleAccordion(this)">
+    <div class="case-info">
+      <div class="case-tag">Visualization &amp; Dashboards &middot; Power BI &middot; DAX</div>
+      <h3 class="case-title">Strategic Enrolment Management: From Static Reports to BI Dashboard</h3>
+    </div>
+    <div class="case-icon">+</div>
+  </div>
+  <div class="case-body">
+
+    <div class="case-section">
+      <div class="case-section-title">Context</div>
+      <p>Strategic Enrolment Management (SEM) is a data-driven framework used by educational institutions to attract, retain, and graduate students effectively. SEM decisions — such as program capacity adjustments, recruitment targeting, and retention interventions — rely heavily on enrolment data spanning multiple years and dimensions. Historically, this analysis was delivered through static Word or PDF reports presenting raw tables without synthesis or analytical framing. This pilot assessed the overall health of an institution's enrolment pipeline using internal cohort data, provincial waitlist records, and regional catchment data.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">The Problem</div>
+      <p>The existing reporting format had three core limitations. First, data was presented as raw tables across disconnected reports with no synthesis. Second, numbers were shown without a decision-making lens — no analytical questions were being asked. Third, stakeholders could not explore data by program, campus, year, or student type. The result was a reporting ecosystem that described what happened but offered no insight into why it mattered or what to do next.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">The Approach</div>
+      <p>A Business Intelligence framework was applied to transform static enrolment reports into an interactive, multi-dimensional dashboard — structured around five analytical questions that address demand, capacity, trends, student retention, and competitive positioning:</p>
+      <ul style="margin-top:0.75rem;padding-left:1.2rem;font-size:0.88rem;color:var(--muted);">
+        <li style="margin-bottom:0.5rem;"><strong style="color:var(--text);">Unmet Program Demand</strong> — Which programs have more qualified applicants than available seats, and where do unplaced students go?</li>
+        <li style="margin-bottom:0.5rem;"><strong style="color:var(--text);">Capacity Pressure</strong> — Are we expanding capacity at the pace of demand, and which programs face the highest competition for available seats?</li>
+        <li style="margin-bottom:0.5rem;"><strong style="color:var(--text);">YOY Enrolment Decline</strong> — Which programs are experiencing sustained enrolment decline, and how severe is the trend?</li>
+        <li style="margin-bottom:0.5rem;"><strong style="color:var(--text);">Student Loss by Stage</strong> — How many students never arrive after enrolling, and how many start but don't complete their program?</li>
+        <li><strong style="color:var(--text);">Catchment Area Analysis</strong> — How many local students are enrolling in competitor institutions — for programs we offer and programs we don't?</li>
+      </ul>
+      <p style="margin-top:0.75rem;">Seven metrics structure the analysis — each calculated dynamically and responsive to active filters.</p>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content">
+        <p style="margin-bottom:0.75rem;">Metrics developed:</p>
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+            <thead><tr>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Metric</th>
+              <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Formula</th>
+            </tr></thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.5rem 0.8rem;color:var(--text);">Waitlisted per Available Seat</td><td style="padding:0.5rem 0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:0.78rem;">Total Waitlisted / Max Seats</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.5rem 0.8rem;color:var(--text);">Priority Loss Rate</td><td style="padding:0.5rem 0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:0.78rem;">1st &amp; 2nd Choice Lost / 1st &amp; 2nd Choice Waitlisted</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.5rem 0.8rem;color:var(--text);">Demand Gap</td><td style="padding:0.5rem 0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:0.78rem;">1st &amp; 2nd Choice Waitlisted &minus; Max Seats</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.5rem 0.8rem;color:var(--text);">YOY Decline (Variable)</td><td style="padding:0.5rem 0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:0.78rem;">Average of years with actual decline</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.5rem 0.8rem;color:var(--text);">YOY Decline (Fixed)</td><td style="padding:0.5rem 0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:0.78rem;">Sum of negative YOY changes / 10 years</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.5rem 0.8rem;color:var(--text);">No-Show Rate</td><td style="padding:0.5rem 0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:0.78rem;">1 &minus; (SEM1 Enrolment / Total Start)</td></tr>
+              <tr><td style="padding:0.5rem 0.8rem;color:var(--text);">Final Semester Attrition</td><td style="padding:0.5rem 0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:0.78rem;">1 &minus; (Final SEM Enrolment / SEM1 Enrolment)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:1rem;margin-bottom:0.5rem;font-size:0.85rem;color:var(--text);font-weight:400;">Dynamic filtering patterns:</p>
+        <ul style="padding-left:1.2rem;font-size:0.85rem;color:var(--muted);">
+          <li style="margin-bottom:0.4rem;"><strong style="color:var(--text);">Cross-filtering</strong> — bar chart selection dynamically updates line chart to show program-level trends</li>
+          <li style="margin-bottom:0.4rem;"><strong style="color:var(--text);">Context-aware TopN</strong> — <span style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--gold);">TOPN + BLANK()</span> pattern ensures relevant programs always appear regardless of ranking position</li>
+          <li style="margin-bottom:0.4rem;"><strong style="color:var(--text);">Student type toggle</strong> — slicer switches between All, Domestic, and Indigenous student views across all metrics</li>
+          <li><strong style="color:var(--text);">3-Year Summary</strong> — DAX pattern using <span style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--gold);">MAXX + TOPN + SUMMARIZE</span> to surface the most impacted program over the last 3 years</li>
+        </ul>
+        <p style="margin-top:1rem;font-size:0.85rem;color:var(--muted);">This pilot was built without a formal data mart — data was sourced from multiple disconnected systems and modelled directly in Power BI. <strong style="color:var(--text);">This pilot defined the analytical requirements a production data mart would need to address.</strong></p>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">The Dashboard</div>
+      <p>Working implementation built on anonymized mock data — interact with it directly:</p>
+      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+        <iframe
+          title="Strategic Enrolment Management (SEM) — BI Pilot"
+          width="100%"
+          height="500"
+          src="https://app.powerbi.com/view?r=eyJrIjoiNmFlMWYzZjItNGUzNS00YjY4LThjMTUtZDNjOWVmYmIzNGQyIiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9"
+          frameborder="0"
+          allowfullscreen="true"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          style="display:block;">
+        </iframe>
+      </div>
+      <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — anonymized mock data for portfolio purposes. Built with Power BI Publish to Web.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Impact</div>
+      <p>Visualizations developed during the exploratory phase of this work were subsequently adopted in institutional SEM and related static reports. This pilot extended that work — adding interactivity, analytical metrics, and a BI framework as a proof of concept for a data-driven approach to enrolment management.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Transferability</div>
+      <p>The analytical patterns developed here are directly transferable to any domain involving demand forecasting, capacity planning, and customer pipeline analysis. The core framework — <em>demand → capacity → trend → attrition → competitive positioning</em> — applies wherever organizations need to move from descriptive reporting to strategic decision-making.</p>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content">
+        <ul style="list-style:none;padding-left:0;font-size:0.88rem;color:var(--muted);line-height:1.6;">
+          <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">Healthcare</strong> — tracking patient waitlists, capacity utilization, and no-show rates by clinic or service to optimize resource allocation.</li>
+          <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">Retail / Hospitality</strong> — analyzing booking demand versus available inventory and identifying lost customers by region.</li>
+          <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">HR Analytics</strong> — monitoring candidate pipeline attrition from application to hire, and regional talent competition.</li>
+          <li><strong style="color:var(--text);">Financial Services</strong> — tracking product application funnels and identifying where potential customers drop off before conversion.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="case-note">Visualizations adopted in institutional reports. Dashboard rebuilt with anonymized mock data for portfolio purposes. Numerical values are randomized but calibrated to reflect realistic institutional scales.</p>
+
+  </div>
+</div>
 </div>
 <!-- end panel-visualization -->
 
