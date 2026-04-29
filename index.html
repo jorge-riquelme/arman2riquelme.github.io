@@ -47,7 +47,7 @@
     .skill-pill{padding:0.4rem 1rem;border:1px solid var(--gold-soft);color:var(--muted);border-radius:4px;font-size:0.8rem;font-weight:400;letter-spacing:0.03em;transition:all 0.2s ease;cursor:default;}
     .skill-pill:hover{border-color:var(--gold);color:var(--gold);}
     #projects{max-width:1200px;margin:0 auto;padding:6rem 4rem;}
-    .category-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:3.5rem;}
+    .category-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:3.5rem;}
     .category-card{padding:1.5rem;background:var(--bg-card);border:1px solid var(--gold-soft);border-radius:4px;cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;}
     .category-card::before{content:"";position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width 0.3s ease;}
     .category-card:hover::before,.category-card.active::before{width:100%;}
@@ -154,6 +154,7 @@
       <div class="category-card active" onclick="showCategory('analysis',this)"><div class="cat-icon">&#9881;</div><div class="cat-title">Data Analysis &amp; Auditing</div><div class="cat-desc">Python — data quality, cleaning, validation, and anomaly detection.</div></div>
       <div class="category-card" onclick="showCategory('visualization',this)"><div class="cat-icon">&#9672;</div><div class="cat-title">Visualization &amp; Dashboards</div><div class="cat-desc">Power BI, Tableau, and Python — from static reports to interactive dashboards.</div></div>
       <div class="category-card" onclick="showCategory('education',this)"><div class="cat-icon">&#9633;</div><div class="cat-title">Education Domain</div><div class="cat-desc">Pilots and proposals — retention, early alert systems, academic performance.</div></div>
+      <div class="category-card" onclick="showCategory('commercial',this)"><div class="cat-icon">&#9670;</div><div class="cat-title">Cross-Industry</div><div class="cat-desc">Kaggle projects in retail, healthcare, and small business — demonstrating transferability beyond education.</div></div>
     </div>
 
     <!-- PANEL: Data Analysis & Auditing -->
@@ -893,6 +894,68 @@
       </div>
     </div>
      <!-- end panel-visualization -->
+
+     <!-- PANEL: Cross-Industry -->
+    <div id="panel-commercial" class="project-panel">
+
+      <div class="case-card">
+  <div class="case-header" onclick="toggleAccordion(this)">
+    <div class="case-info">
+      <div class="case-tag">Cross-Industry · Power BI / Python / Kaggle</div>
+      <h3 class="case-title">Adidas US — Sales & Pricing Analysis</h3>
+    </div>
+    <div class="case-icon">+</div>
+  </div>
+  <div class="case-body">
+    <div class="case-section">
+      <div class="case-section-title">Context</div>
+      <p>Public Kaggle dataset of 9,648 rows covering Adidas US sales across 2020–2021. The original dataset exists as exploratory data analysis (EDA) in Python notebooks — descriptive visualizations with no analytical framework or business decision orientation. This project was deliberately developed outside the primary domain of post-secondary education to demonstrate the transferability of the same BI analytical framework to a commercial retail context.</p>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content"><p>The dataset does not include list prices, competitor benchmarks, or discount structures — limiting the analysis to descriptive pricing intelligence: revenue per unit as a price proxy, seasonal price variation, and retailer pricing gaps. Price optimization — elasticity modeling and optimal price point simulation — is outside the scope of the available data.</p></div>
+    </div>
+    <div class="case-section">
+      <div class="case-section-title">The Problem</div>
+      <p>No analytical questions guiding interpretation. No pricing analysis — revenue per unit, seasonal price variation, and retailer pricing gaps were unexplored. No profitability lens — margin by product, region, and channel was invisible. No interactivity — stakeholders could not explore by geography, channel, or product.</p>
+    </div>
+    <div class="case-section">
+      <div class="case-section-title">The Approach</div>
+      <p>Four-page interactive dashboard structured around five analytical questions:</p>
+      <ol style="margin-top:0.75rem;padding-left:1.2rem;font-size:0.92rem;color:var(--muted);line-height:1.8;">
+        <li><em>"How has operating margin evolved quarter over quarter across 2020–2021?"</em></li>
+        <li><em>"Which regions, states, and sales channels generate the most revenue?"</em></li>
+        <li><em>"Which products command the highest price per unit — and does pricing vary seasonally or by retailer?"</em></li>
+        <li><em>"Are the best-selling products also the most profitable, or is there a trade-off between volume and margin?"</em></li>
+        <li><em>"Where and what generates the most profit — not just revenue?"</em></li>
+      </ol>
+      <p style="margin-top:0.75rem;"><strong style="color:var(--gold);">Key Metrics:</strong> Total Sales, Operating Profit, AVG Operating Margin, Revenue per Unit, YOY Sales Growth, Units Sold</p>
+      <p style="margin-top:0.5rem;"><strong style="color:var(--gold);">DAX Patterns:</strong> <code>DIVIDE</code> for margin calculations, <code>MAXX + TOPN + SUMMARIZE</code> for dynamic top performers, <code>SELECTEDVALUE</code> for context-aware narrative cards, Field Parameters for dynamic geographic granularity</p>
+    </div>
+    <div class="case-section">
+      <div class="case-section-title">Dashboard</div>
+      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+        <iframe
+          title="Adidas BI Analisis"
+          width="100%"
+          height="400"
+          src="https://app.powerbi.com/view?r=eyJrIjoiYjU3ZWQ4MzctYzU0Mi00NDZmLWE5ZWUtMzU3MzZkMDg3MzA1IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9"
+          frameborder="0"
+          allowfullscreen="true"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          style="display:block;">
+        </iframe>
+      </div>
+      <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Dataset retrieved from Kaggle. Final layout, color palette, and design are adapted for the target platform (SharePoint or embedded app) upon deployment.</p>
+    </div>
+    <div class="case-section">
+      <div class="case-section-title">Impact</div>
+      <p>Demonstrates transferability of the same BI analytical framework — analytical question framing, Python data preparation, DAX dynamic measures, and cross-filtering interactivity — from the post-secondary education domain to a commercial retail context.</p>
+    </div>
+    <p class="case-note">Built on a public Kaggle dataset. No institutional or proprietary data involved.</p>
+  </div>
+</div>
+  </div>
+    <!-- end panel-commercial -->
   
   <section id="contact" style="border-top:1px solid var(--border);">
     <p class="section-label">Contact</p>
